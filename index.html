@@ -1,1 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>THE JEWELS — Luxury Jewellery</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080808;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+}
+
+/* NAVBAR */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 6%;
+    background: rgba(8,8,8,.88);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(212,175,55,.15);
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    letter-spacing: 5px;
+    color: #d4af37;
+    font-weight: 600;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ddd;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: #d4af37;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 20px;
+    font-size: 20px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 130px 7% 80px;
+    background:
+        linear-gradient(90deg, #080808 10%, rgba(8,8,8,.72) 45%, rgba(8,8,8,.1)),
+        url("https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1800&q=90");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 620px;
+}
+
+.small-title {
+    color: #d4af37;
+    letter-spacing: 5px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(65px, 9vw, 120px);
+    line-height: .85;
+    font-weight: 500;
+    letter-spacing: -3px;
+}
+
+.hero h1 span {
+    color: #d4af37;
+}
+
+.hero p {
+    margin-top: 35px;
+    max-width: 480px;
+    color: #bbb;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.gold-btn {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 16px 32px;
+    background: #d4af37;
+    color: #080808;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.gold-btn:hover {
+    background: #fff;
+    transform: translateY(-3px);
+}
+
+/* CATEGORIES */
+
+.section {
+    padding: 100px 7%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-heading span {
+    color: #d4af37;
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+.section-heading h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 55px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.category {
+    height: 420px;
+    position: relative;
+    overflow: hidden;
+    background: #111;
+}
+
+.category img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .7s;
+}
+
+.category:hover img {
+    transform: scale(1.08);
+}
+
+.category-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+    background: linear-gradient(transparent, rgba(0,0,0,.85));
+}
+
+.category h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+}
+
+/* PRODUCTS */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.product {
+    background: #111;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.07);
+    transition: .4s;
+}
+
+.product:hover {
+    transform: translateY(-7px);
+    border-color: rgba(212,175,55,.4);
+}
+
+.product-image {
+    height: 360px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .6s;
+}
+
+.product:hover img {
+    transform: scale(1.06);
+}
+
+.product-info {
+    padding: 22px;
+}
+
+.product-info small {
+    color: #888;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 9px;
+}
+
+.product-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    margin: 8px 0;
+}
+
+.price {
+    color: #d4af37;
+    font-size: 14px;
+}
+
+/* FEATURE */
+
+.feature {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    padding: 80px 8%;
+    background:
+        linear-gradient(90deg, rgba(8,8,8,.95), rgba(8,8,8,.35)),
+        url("https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1800&q=90");
+    background-size: cover;
+    background-position: center;
+}
+
+.feature-content {
+    max-width: 550px;
+}
+
+.feature h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 65px;
+    font-weight: 500;
+}
+
+.feature p {
+    color: #bbb;
+    line-height: 1.8;
+    margin-top: 20px;
+}
+
+/* BENEFITS */
+
+.benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.benefit {
+    text-align: center;
+    padding: 45px 25px;
+    border: 1px solid rgba(212,175,55,.15);
+}
+
+.benefit-icon {
+    font-size: 30px;
+    color: #d4af37;
+}
+
+.benefit h3 {
+    margin: 18px 0 10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+}
+
+.benefit p {
+    color: #888;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 70px 7% 30px;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 50px;
+}
+
+.footer-brand .logo {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.footer-brand p {
+    color: #777;
+    line-height: 1.8;
+    max-width: 350px;
+    font-size: 13px;
+}
+
+footer h4 {
+    color: #d4af37;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer li {
+    margin: 12px 0;
+}
+
+footer a {
+    color: #888;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+footer a:hover {
+    color: #d4af37;
+}
+
+.copyright {
+    border-top: 1px solid rgba(255,255,255,.08);
+    margin-top: 60px;
+    padding-top: 25px;
+    color: #555;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .categories {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .products {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width:600px) {
+
+    .hero {
+        padding-left: 6%;
+    }
+
+    .hero h1 {
+        font-size: 70px;
+    }
+
+    .categories,
+    .products,
+    .benefits,
+    .footer-top {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 45px;
+    }
+
+    .category {
+        height: 450px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav class="navbar">
+
+    <div class="logo">THE JEWELS</div>
+
+    <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-icons">
+        ♡
+        🛒
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            THE JEWELS COLLECTION
+        </div>
+
+        <h1>
+            Wear<br>
+            <span>Your</span><br>
+            Story.
+        </h1>
+
+        <p>
+            Discover elegant jewellery designed to make
+            every moment unforgettable. From timeless
+            silver pieces to sophisticated rose-gold
+            collections.
+        </p>
+
+        <a href="#shop" class="gold-btn">
+            Explore Collection
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section class="section" id="collections">
+
+    <div class="section-heading">
+        <span>DISCOVER</span>
+        <h2>Shop by Collection</h2>
+    </div>
+
+    <div class="categories">
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=85">
+            <div class="category-overlay">
+                <h3>Necklaces</h3>
+            </div>
+        </div>
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85">
+            <div class="category-overlay">
+                <h3>Rings</h3>
+            </div>
+        </div>
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=85">
+            <div class="category-overlay">
+                <h3>Earrings</h3>
+            </div>
+        </div>
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85">
+            <div class="category-overlay">
+                <h3>Bracelets</h3>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FEATURED PRODUCTS -->
+
+<section class="section" id="shop">
+
+    <div class="section-heading">
+        <span>THE JEWELS</span>
+        <h2>Featured Pieces</h2>
+    </div>
+
+    <div class="products">
+
+        <div class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=800&q=85">
+            </div>
+            <div class="product-info">
+                <small>Necklace</small>
+                <h3>Royal Pendant</h3>
+                <div class="price">₹2,499</div>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=85">
+            </div>
+            <div class="product-info">
+                <small>Silver Collection</small>
+                <h3>Signature Ring</h3>
+                <div class="price">₹1,999</div>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=85">
+            </div>
+            <div class="product-info">
+                <small>Earrings</small>
+                <h3>Grace Earrings</h3>
+                <div class="price">₹1,499</div>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=800&q=85">
+            </div>
+            <div class="product-info">
+                <small>Bracelet</small>
+                <h3>Golden Signature</h3>
+                <div class="price">₹2,299</div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BRAND FEATURE -->
+
+<section class="feature" id="about">
+
+    <div class="feature-content">
+
+        <div class="small-title">
+            THE ART OF JEWELLERY
+        </div>
+
+        <h2>
+            Elegance that<br>
+            stays with you.
+        </h2>
+
+        <p>
+            THE JEWELS brings together contemporary
+            designs and timeless elegance. Explore
+            carefully selected pieces in silver,
+            rose gold finishes and modern jewellery
+            collections.
+        </p>
+
+        <a href="#collections" class="gold-btn">
+            Discover More
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- WHY THE JEWELS -->
+
+<section class="section">
+
+    <div class="section-heading">
+        <span>THE JEWELS EXPERIENCE</span>
+        <h2>Made for Every Moment</h2>
+    </div>
+
+    <div class="benefits">
+
+        <div class="benefit">
+            <div class="benefit-icon">◇</div>
+            <h3>Premium Quality</h3>
+            <p>
+                Carefully selected jewellery with
+                attention to detail and finish.
+            </p>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">✦</div>
+            <h3>Elegant Designs</h3>
+            <p>
+                Modern and timeless pieces created
+                for everyday and special occasions.
+            </p>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">♡</div>
+            <h3>Made for You</h3>
+            <p>
+                Jewellery that complements your
+                personality, style and moments.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer id="contact">
+
+    <div class="footer-top">
+
+        <div class="footer-brand">
+            <div class="logo">THE JEWELS</div>
+
+            <p>
+                Discover jewellery that reflects
+                your style. Premium collections,
+                elegant designs and timeless beauty.
+            </p>
+        </div>
+
+        <div>
+            <h4>SHOP</h4>
+            <ul>
+                <li><a href="#">Necklaces</a></li>
+                <li><a href="#">Rings</a></li>
+                <li><a href="#">Earrings</a></li>
+                <li><a href="#">Bracelets</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>HELP</h4>
+            <ul>
+                <li><a href="#">Shipping</a></li>
+                <li><a href="#">Returns</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>CONNECT</h4>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">WhatsApp</a></li>
+                <li><a href="tel:+917483733619">+91 74837 33619</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 THE JEWELS. ALL RIGHTS RESERVED.
+    </div>
+
+</footer>
+
+</body>
+</html>
