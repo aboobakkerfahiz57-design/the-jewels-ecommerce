@@ -1,720 +1,1518 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>THE JEWELS — Luxury Jewellery</title>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background: #080808;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-}
-
-/* NAVBAR */
-
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 22px 6%;
-    background: rgba(8,8,8,.88);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(212,175,55,.15);
-}
-
-.logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 30px;
-    letter-spacing: 5px;
-    color: #d4af37;
-    font-weight: 600;
-}
-
-.nav-links {
-    display: flex;
-    gap: 35px;
-    list-style: none;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #ddd;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: .3s;
-}
-
-.nav-links a:hover {
-    color: #d4af37;
-}
-
-.nav-icons {
-    display: flex;
-    gap: 20px;
-    font-size: 20px;
-}
-
-/* HERO */
-
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 130px 7% 80px;
-    background:
-        linear-gradient(90deg, #080808 10%, rgba(8,8,8,.72) 45%, rgba(8,8,8,.1)),
-        url("https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1800&q=90");
-    background-size: cover;
-    background-position: center;
-}
-
-.hero-content {
-    max-width: 620px;
-}
-
-.small-title {
-    color: #d4af37;
-    letter-spacing: 5px;
-    font-size: 12px;
-    margin-bottom: 25px;
-}
-
-.hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(65px, 9vw, 120px);
-    line-height: .85;
-    font-weight: 500;
-    letter-spacing: -3px;
-}
-
-.hero h1 span {
-    color: #d4af37;
-}
-
-.hero p {
-    margin-top: 35px;
-    max-width: 480px;
-    color: #bbb;
-    line-height: 1.8;
-    font-size: 15px;
-}
-
-.gold-btn {
-    display: inline-block;
-    margin-top: 35px;
-    padding: 16px 32px;
-    background: #d4af37;
-    color: #080808;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 11px;
-    font-weight: 600;
-    transition: .3s;
-}
-
-.gold-btn:hover {
-    background: #fff;
-    transform: translateY(-3px);
-}
-
-/* CATEGORIES */
-
-.section {
-    padding: 100px 7%;
-}
-
-.section-heading {
-    text-align: center;
-    margin-bottom: 55px;
-}
-
-.section-heading span {
-    color: #d4af37;
-    font-size: 11px;
-    letter-spacing: 4px;
-}
-
-.section-heading h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 55px;
-    font-weight: 500;
-    margin-top: 10px;
-}
-
-.categories {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-}
-
-.category {
-    height: 420px;
-    position: relative;
-    overflow: hidden;
-    background: #111;
-}
-
-.category img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: .7s;
-}
-
-.category:hover img {
-    transform: scale(1.08);
-}
-
-.category-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: flex-end;
-    padding: 30px;
-    background: linear-gradient(transparent, rgba(0,0,0,.85));
-}
-
-.category h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 30px;
-}
-
-/* PRODUCTS */
-
-.products {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-}
-
-.product {
-    background: #111;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,.07);
-    transition: .4s;
-}
-
-.product:hover {
-    transform: translateY(-7px);
-    border-color: rgba(212,175,55,.4);
-}
-
-.product-image {
-    height: 360px;
-    overflow: hidden;
-}
-
-.product-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: .6s;
-}
-
-.product:hover img {
-    transform: scale(1.06);
-}
-
-.product-info {
-    padding: 22px;
-}
-
-.product-info small {
-    color: #888;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-size: 9px;
-}
-
-.product-info h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 25px;
-    margin: 8px 0;
-}
-
-.price {
-    color: #d4af37;
-    font-size: 14px;
-}
-
-/* FEATURE */
-
-.feature {
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    padding: 80px 8%;
-    background:
-        linear-gradient(90deg, rgba(8,8,8,.95), rgba(8,8,8,.35)),
-        url("https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1800&q=90");
-    background-size: cover;
-    background-position: center;
-}
-
-.feature-content {
-    max-width: 550px;
-}
-
-.feature h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 65px;
-    font-weight: 500;
-}
-
-.feature p {
-    color: #bbb;
-    line-height: 1.8;
-    margin-top: 20px;
-}
-
-/* BENEFITS */
-
-.benefits {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.benefit {
-    text-align: center;
-    padding: 45px 25px;
-    border: 1px solid rgba(212,175,55,.15);
-}
-
-.benefit-icon {
-    font-size: 30px;
-    color: #d4af37;
-}
-
-.benefit h3 {
-    margin: 18px 0 10px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
-}
-
-.benefit p {
-    color: #888;
-    font-size: 13px;
-    line-height: 1.7;
-}
-
-/* FOOTER */
-
-footer {
-    padding: 70px 7% 30px;
-    border-top: 1px solid rgba(255,255,255,.08);
-}
-
-.footer-top {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 50px;
-}
-
-.footer-brand .logo {
-    display: inline-block;
-    margin-bottom: 20px;
-}
-
-.footer-brand p {
-    color: #777;
-    line-height: 1.8;
-    max-width: 350px;
-    font-size: 13px;
-}
-
-footer h4 {
-    color: #d4af37;
-    font-size: 11px;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-}
-
-footer ul {
-    list-style: none;
-}
-
-footer li {
-    margin: 12px 0;
-}
-
-footer a {
-    color: #888;
-    text-decoration: none;
-    font-size: 13px;
-}
-
-footer a:hover {
-    color: #d4af37;
-}
-
-.copyright {
-    border-top: 1px solid rgba(255,255,255,.08);
-    margin-top: 60px;
-    padding-top: 25px;
-    color: #555;
-    text-align: center;
-    font-size: 11px;
-    letter-spacing: 1px;
-}
-
-/* MOBILE */
-
-@media(max-width:900px) {
-
-    .nav-links {
-        display: none;
-    }
-
-    .categories {
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .products {
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .footer-top {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media(max-width:600px) {
-
-    .hero {
-        padding-left: 6%;
-    }
-
-    .hero h1 {
-        font-size: 70px;
-    }
-
-    .categories,
-    .products,
-    .benefits,
-    .footer-top {
-        grid-template-columns: 1fr;
-    }
-
-    .section-heading h2 {
-        font-size: 45px;
-    }
-
-    .category {
-        height: 450px;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>THE JEWELS — Luxury Jewellery</title>
+
+    <meta
+        name="description"
+        content="THE JEWELS — A premium destination for timeless jewellery."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #090909;
+            color: #f7f3ec;
+            font-family: "Inter", sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+
+        /* =========================================================
+           VARIABLES
+        ========================================================= */
+
+        :root {
+            --black: #090909;
+            --deep-black: #050505;
+            --gold: #d4af70;
+            --gold-light: #ead39e;
+            --ivory: #f7f3ec;
+            --muted: #a9a39a;
+            --line: rgba(212, 175, 112, 0.25);
+            --blue: #3138d8;
+        }
+
+
+        /* =========================================================
+           TOP ANNOUNCEMENT
+        ========================================================= */
+
+        .announcement {
+            height: 32px;
+            background: #050505;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #c9c3ba;
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        .navbar {
+            position: absolute;
+            top: 32px;
+            left: 0;
+            width: 100%;
+            height: 86px;
+
+            z-index: 100;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 5vw;
+
+            border-bottom: 1px solid rgba(255,255,255,0.10);
+
+            background: linear-gradient(
+                to bottom,
+                rgba(0,0,0,0.70),
+                rgba(0,0,0,0)
+            );
+
+            transition: 0.35s ease;
+        }
+
+        .navbar.scrolled {
+            position: fixed;
+            top: 0;
+
+            background: rgba(7,7,7,0.96);
+            backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid var(--line);
+        }
+
+
+        /* =========================================================
+           LOGO
+        ========================================================= */
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+            min-width: 180px;
+        }
+
+        .brand img {
+            width: 48px;
+            height: 48px;
+
+            object-fit: contain;
+
+            display: block;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .brand-name {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 5px;
+        }
+
+        .brand-subtitle {
+            margin-top: 6px;
+
+            color: var(--gold);
+            font-size: 8px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================================
+           NAV LINKS
+        ========================================================= */
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            position: relative;
+
+            color: rgba(255,255,255,0.88);
+
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -9px;
+
+            width: 0;
+            height: 1px;
+
+            background: var(--gold);
+
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+
+        /* =========================================================
+           NAV ACTIONS
+        ========================================================= */
+
+        .nav-actions {
+            min-width: 180px;
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .nav-icon {
+            width: 36px;
+            height: 36px;
+
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+        .nav-icon:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .cart-count {
+            position: absolute;
+
+            margin-left: 27px;
+            margin-top: -28px;
+
+            width: 16px;
+            height: 16px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: var(--gold);
+            color: #111;
+
+            font-size: 8px;
+            font-weight: 600;
+        }
+
+
+        /* =========================================================
+           MOBILE MENU
+        ========================================================= */
+
+        .menu-button {
+            display: none;
+
+            width: 38px;
+            height: 38px;
+
+            border: 1px solid rgba(255,255,255,0.25);
+            background: transparent;
+            color: white;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            position: relative;
+
+            width: 100%;
+            height: min(850px, 100vh);
+
+            min-height: 650px;
+
+            overflow: hidden;
+
+            background: #050505;
+        }
+
+        .hero-image {
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            object-position: center;
+
+            transform: scale(1.015);
+
+            animation: heroZoom 12s ease-out forwards;
+        }
+
+        @keyframes heroZoom {
+            from {
+                transform: scale(1.04);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .hero-overlay {
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.72) 0%,
+                    rgba(0,0,0,0.30) 35%,
+                    rgba(0,0,0,0.08) 70%,
+                    rgba(0,0,0,0.40) 100%
+                );
+
+            pointer-events: none;
+        }
+
+        .hero-bottom {
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            height: 230px;
+
+            background: linear-gradient(
+                to top,
+                #090909,
+                transparent
+            );
+
+            pointer-events: none;
+        }
+
+
+        /* =========================================================
+           HERO CONTENT
+        ========================================================= */
+
+        .hero-content {
+            position: absolute;
+
+            left: 7vw;
+            bottom: 12vh;
+
+            max-width: 460px;
+
+            z-index: 5;
+        }
+
+        .hero-eyebrow {
+            color: var(--gold-light);
+
+            font-size: 10px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+
+            margin-bottom: 18px;
+        }
+
+        .hero-title {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(55px, 7vw, 100px);
+            font-weight: 400;
+
+            line-height: 0.88;
+            letter-spacing: -2px;
+
+            margin-bottom: 25px;
+        }
+
+        .hero-title span {
+            color: var(--gold-light);
+        }
+
+        .hero-description {
+            color: rgba(255,255,255,0.75);
+
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 1.8;
+
+            max-width: 340px;
+
+            margin-bottom: 30px;
+        }
+
+        .hero-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+
+            padding: 15px 24px;
+
+            border: 1px solid rgba(234,211,158,0.70);
+
+            color: #fff;
+
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            transition: 0.35s ease;
+        }
+
+        .hero-button span {
+            color: var(--gold-light);
+            font-size: 17px;
+        }
+
+        .hero-button:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #090909;
+        }
+
+        .hero-button:hover span {
+            color: #090909;
+        }
+
+
+        /* =========================================================
+           SCROLL INDICATOR
+        ========================================================= */
+
+        .scroll-indicator {
+            position: absolute;
+
+            right: 5vw;
+            bottom: 55px;
+
+            z-index: 5;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .scroll-indicator span {
+            writing-mode: vertical-rl;
+
+            color: rgba(255,255,255,0.55);
+
+            font-size: 8px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 60px;
+
+            background: linear-gradient(
+                to bottom,
+                var(--gold),
+                transparent
+            );
+        }
+
+
+        /* =========================================================
+           COLLECTION SECTION
+        ========================================================= */
+
+        .collections {
+            padding: 110px 5vw 120px;
+
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(49,56,216,0.08),
+                    transparent 30%
+                ),
+                #090909;
+        }
+
+        .section-heading {
+            text-align: center;
+
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            color: var(--gold);
+
+            font-size: 9px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(42px, 5vw, 68px);
+            font-weight: 400;
+
+            letter-spacing: -1px;
+        }
+
+        .section-line {
+            width: 50px;
+            height: 1px;
+
+            background: var(--gold);
+
+            margin: 20px auto 0;
+        }
+
+
+        /* =========================================================
+           CATEGORY GRID
+        ========================================================= */
+
+        .category-grid {
+            max-width: 1350px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .category-card {
+            position: relative;
+
+            min-height: 420px;
+
+            overflow: hidden;
+
+            background: #111;
+
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .category-card.large {
+            grid-row: span 2;
+            min-height: 858px;
+        }
+
+        .category-card img {
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform 0.8s cubic-bezier(.2,.7,.2,1);
+        }
+
+        .category-card::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background: linear-gradient(
+                to top,
+                rgba(0,0,0,0.85),
+                rgba(0,0,0,0.05) 65%
+            );
+        }
+
+        .category-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .category-info {
+            position: absolute;
+
+            left: 28px;
+            right: 28px;
+            bottom: 28px;
+
+            z-index: 2;
+        }
+
+        .category-number {
+            color: var(--gold);
+
+            font-size: 9px;
+            letter-spacing: 3px;
+        }
+
+        .category-name {
+            margin-top: 7px;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 35px;
+            font-weight: 500;
+        }
+
+        .category-link {
+            display: inline-block;
+
+            margin-top: 12px;
+
+            color: rgba(255,255,255,0.70);
+
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================================
+           BRAND STATEMENT
+        ========================================================= */
+
+        .statement {
+            padding: 130px 8vw;
+
+            text-align: center;
+
+            background: #050505;
+
+            border-top: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .statement-mark {
+            color: var(--gold);
+
+            font-size: 25px;
+
+            margin-bottom: 22px;
+        }
+
+        .statement h2 {
+            max-width: 900px;
+
+            margin: auto;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(40px, 5vw, 72px);
+            font-weight: 400;
+
+            line-height: 1.05;
+        }
+
+        .statement p {
+            max-width: 620px;
+
+            margin: 28px auto 0;
+
+            color: var(--muted);
+
+            font-size: 13px;
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 65px 5vw 35px;
+
+            background: #070707;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+
+            padding-bottom: 55px;
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-brand .brand {
+            margin-bottom: 22px;
+        }
+
+        .footer-brand p {
+            color: #85817a;
+
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 20px;
+
+            color: var(--gold);
+
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .footer-column a {
+            display: block;
+
+            margin-bottom: 12px;
+
+            color: #aaa59c;
+
+            font-size: 11px;
+
+            transition: 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 25px;
+
+            display: flex;
+            justify-content: space-between;
+
+            color: #5e5b56;
+
+            font-size: 9px;
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .brand {
+                min-width: auto;
+            }
+
+            .brand-text {
+                display: none;
+            }
+
+            .nav-actions {
+                min-width: auto;
+            }
+
+            .hero {
+                height: 82vh;
+                min-height: 620px;
+            }
+
+            .hero-content {
+                left: 7vw;
+                bottom: 80px;
+                right: 7vw;
+            }
+
+            .hero-title {
+                font-size: 65px;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .category-card.large {
+                grid-row: span 1;
+                min-height: 420px;
+            }
+
+            .footer-top {
+                flex-wrap: wrap;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .announcement {
+                font-size: 7px;
+                letter-spacing: 2px;
+            }
+
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .brand img {
+                width: 42px;
+                height: 42px;
+            }
+
+            .nav-icon {
+                width: 34px;
+                height: 34px;
+            }
+
+            .hero {
+                min-height: 600px;
+            }
+
+            .hero-image {
+                object-position: 60% center;
+            }
+
+            .hero-overlay {
+                background:
+                    linear-gradient(
+                        to top,
+                        rgba(0,0,0,0.85) 0%,
+                        rgba(0,0,0,0.30) 55%,
+                        rgba(0,0,0,0.12) 100%
+                    );
+            }
+
+            .hero-content {
+                left: 25px;
+                right: 25px;
+                bottom: 60px;
+            }
+
+            .hero-title {
+                font-size: 58px;
+            }
+
+            .hero-description {
+                font-size: 12px;
+            }
+
+            .collections {
+                padding: 80px 20px;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-card,
+            .category-card.large {
+                min-height: 420px;
+            }
+
+            .statement {
+                padding: 90px 25px;
+            }
+
+            .footer-top {
+                flex-direction: column;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-<!-- NAVIGATION -->
+    <!-- =========================================================
+         ANNOUNCEMENT
+    ========================================================== -->
 
-<nav class="navbar">
-
-    <div class="logo">THE JEWELS</div>
-
-    <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#collections">Collections</a></li>
-        <li><a href="#shop">Shop</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-
-    <div class="nav-icons">
-        ♡
-        🛒
+    <div class="announcement">
+        A WORLD OF TIMELESS ELEGANCE
     </div>
 
-</nav>
 
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
 
-<!-- HERO -->
+    <header class="navbar" id="navbar">
 
-<section class="hero">
+        <a href="index.html" class="brand">
 
-    <div class="hero-content">
+            <img
+                src="logo.jpeg"
+                alt="THE JEWELS Logo"
+            >
 
-        <div class="small-title">
-            THE JEWELS COLLECTION
-        </div>
+            <div class="brand-text">
 
-        <h1>
-            Wear<br>
-            <span>Your</span><br>
-            Story.
-        </h1>
+                <div class="brand-name">
+                    THE JEWELS
+                </div>
 
-        <p>
-            Discover elegant jewellery designed to make
-            every moment unforgettable. From timeless
-            silver pieces to sophisticated rose-gold
-            collections.
-        </p>
+                <div class="brand-subtitle">
+                    Fine Jewellery
+                </div>
 
-        <a href="#shop" class="gold-btn">
-            Explore Collection
+            </div>
+
         </a>
 
-    </div>
 
-</section>
+        <nav class="nav-links">
+
+            <a href="#collections">
+                Collections
+            </a>
+
+            <a href="#necklaces">
+                Necklaces
+            </a>
+
+            <a href="#rings">
+                Rings
+            </a>
+
+            <a href="#earrings">
+                Earrings
+            </a>
+
+            <a href="#kadas">
+                Kadas
+            </a>
+
+        </nav>
 
 
-<!-- CATEGORIES -->
+        <div class="nav-actions">
 
-<section class="section" id="collections">
+            <button
+                class="nav-icon"
+                aria-label="Search"
+                onclick="showComingSoon('Search')"
+            >
+                ⌕
+            </button>
 
-    <div class="section-heading">
-        <span>DISCOVER</span>
-        <h2>Shop by Collection</h2>
-    </div>
+            <button
+                class="nav-icon"
+                aria-label="Cart"
+                onclick="showComingSoon('Cart')"
+                style="position:relative;"
+            >
+                ♡
+                <span class="cart-count">0</span>
+            </button>
 
-    <div class="categories">
+            <button
+                class="menu-button"
+                aria-label="Menu"
+                onclick="toggleMobileMenu()"
+            >
+                ☰
+            </button>
 
-        <div class="category">
-            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=85">
-            <div class="category-overlay">
-                <h3>Necklaces</h3>
-            </div>
         </div>
 
-        <div class="category">
-            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85">
-            <div class="category-overlay">
-                <h3>Rings</h3>
+    </header>
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <img
+                src="home-hero.jpeg"
+                alt="THE JEWELS luxury necklace"
+                class="hero-image"
+            >
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-bottom"></div>
+
+
+            <div class="hero-content">
+
+                <div class="hero-eyebrow">
+                    THE JEWELS
+                </div>
+
+                <h1 class="hero-title">
+                    Made to<br>
+                    <span>be remembered.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Discover jewellery created for moments
+                    that deserve to last forever.
+                </p>
+
+                <a
+                    href="#collections"
+                    class="hero-button"
+                >
+                    Explore Collection
+                    <span>→</span>
+                </a>
+
             </div>
-        </div>
 
-        <div class="category">
-            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=85">
-            <div class="category-overlay">
-                <h3>Earrings</h3>
+
+            <div class="scroll-indicator">
+
+                <span>
+                    Discover
+                </span>
+
+                <div class="scroll-line"></div>
+
             </div>
-        </div>
 
-        <div class="category">
-            <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85">
-            <div class="category-overlay">
-                <h3>Bracelets</h3>
+        </section>
+
+
+        <!-- =====================================================
+             COLLECTIONS
+        ====================================================== -->
+
+        <section
+            class="collections"
+            id="collections"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Discover
+                </div>
+
+                <h2 class="section-title">
+                    The Collections
+                </h2>
+
+                <div class="section-line"></div>
+
             </div>
-        </div>
-
-    </div>
-
-</section>
 
 
-<!-- FEATURED PRODUCTS -->
+            <div class="category-grid">
 
-<section class="section" id="shop">
 
-    <div class="section-heading">
-        <span>THE JEWELS</span>
-        <h2>Featured Pieces</h2>
-    </div>
+                <!-- NECKLACES -->
 
-    <div class="products">
+                <a
+                    href="products.html?category=necklaces"
+                    class="category-card large"
+                    id="necklaces"
+                >
 
-        <div class="product">
-            <div class="product-image">
-                <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=800&q=85">
+                    <img
+                        src="necklace-01.jpeg"
+                        alt="Necklaces"
+                    >
+
+                    <div class="category-info">
+
+                        <div class="category-number">
+                            01
+                        </div>
+
+                        <div class="category-name">
+                            Necklaces
+                        </div>
+
+                        <div class="category-link">
+                            View Collection →
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+                <!-- RINGS -->
+
+                <a
+                    href="products.html?category=rings"
+                    class="category-card"
+                    id="rings"
+                >
+
+                    <img
+                        src="ring-02.jpeg"
+                        alt="Rings"
+                    >
+
+                    <div class="category-info">
+
+                        <div class="category-number">
+                            02
+                        </div>
+
+                        <div class="category-name">
+                            Rings
+                        </div>
+
+                        <div class="category-link">
+                            View Collection →
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+                <!-- EARRINGS -->
+
+                <a
+                    href="products.html?category=earrings"
+                    class="category-card"
+                    id="earrings"
+                >
+
+                    <img
+                        src="earring-01.jpeg"
+                        alt="Earrings"
+                    >
+
+                    <div class="category-info">
+
+                        <div class="category-number">
+                            03
+                        </div>
+
+                        <div class="category-name">
+                            Earrings
+                        </div>
+
+                        <div class="category-link">
+                            View Collection →
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+                <!-- KADAS -->
+
+                <a
+                    href="products.html?category=kadas"
+                    class="category-card"
+                    id="kadas"
+                >
+
+                    <img
+                        src="kada-01.jpeg"
+                        alt="Kadas"
+                    >
+
+                    <div class="category-info">
+
+                        <div class="category-number">
+                            04
+                        </div>
+
+                        <div class="category-name">
+                            Kadas
+                        </div>
+
+                        <div class="category-link">
+                            View Collection →
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+                <!-- ROYAL PENDANTS -->
+
+                <a
+                    href="products.html?category=royal-pendants"
+                    class="category-card"
+                >
+
+                    <img
+                        src="royal-pendant-01.jpeg"
+                        alt="Royal Pendants"
+                    >
+
+                    <div class="category-info">
+
+                        <div class="category-number">
+                            05
+                        </div>
+
+                        <div class="category-name">
+                            Royal Pendants
+                        </div>
+
+                        <div class="category-link">
+                            View Collection →
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+                <!-- SIGNATURE -->
+
+                <a
+                    href="products.html?category=signature"
+                    class="category-card"
+                >
+
+                    <img
+                        src="signature-01.jpeg"
+                        alt="Signature Collection"
+                    >
+
+                    <div class="category-info">
+
+                        <div class="category-number">
+                            06
+                        </div>
+
+                        <div class="category-name">
+                            Signature
+                        </div>
+
+                        <div class="category-link">
+                            View Collection →
+                        </div>
+
+                    </div>
+
+                </a>
+
             </div>
-            <div class="product-info">
-                <small>Necklace</small>
-                <h3>Royal Pendant</h3>
-                <div class="price">₹2,499</div>
+
+        </section>
+
+
+        <!-- =====================================================
+             BRAND STATEMENT
+        ====================================================== -->
+
+        <section class="statement">
+
+            <div class="statement-mark">
+                ✦
             </div>
-        </div>
 
-        <div class="product">
-            <div class="product-image">
-                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=85">
-            </div>
-            <div class="product-info">
-                <small>Silver Collection</small>
-                <h3>Signature Ring</h3>
-                <div class="price">₹1,999</div>
-            </div>
-        </div>
+            <h2>
+                Jewellery that becomes
+                part of your story.
+            </h2>
 
-        <div class="product">
-            <div class="product-image">
-                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=85">
-            </div>
-            <div class="product-info">
-                <small>Earrings</small>
-                <h3>Grace Earrings</h3>
-                <div class="price">₹1,499</div>
-            </div>
-        </div>
-
-        <div class="product">
-            <div class="product-image">
-                <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=800&q=85">
-            </div>
-            <div class="product-info">
-                <small>Bracelet</small>
-                <h3>Golden Signature</h3>
-                <div class="price">₹2,299</div>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- BRAND FEATURE -->
-
-<section class="feature" id="about">
-
-    <div class="feature-content">
-
-        <div class="small-title">
-            THE ART OF JEWELLERY
-        </div>
-
-        <h2>
-            Elegance that<br>
-            stays with you.
-        </h2>
-
-        <p>
-            THE JEWELS brings together contemporary
-            designs and timeless elegance. Explore
-            carefully selected pieces in silver,
-            rose gold finishes and modern jewellery
-            collections.
-        </p>
-
-        <a href="#collections" class="gold-btn">
-            Discover More
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- WHY THE JEWELS -->
-
-<section class="section">
-
-    <div class="section-heading">
-        <span>THE JEWELS EXPERIENCE</span>
-        <h2>Made for Every Moment</h2>
-    </div>
-
-    <div class="benefits">
-
-        <div class="benefit">
-            <div class="benefit-icon">◇</div>
-            <h3>Premium Quality</h3>
             <p>
-                Carefully selected jewellery with
-                attention to detail and finish.
+                Carefully selected designs, refined details and
+                timeless elegance — created for the moments
+                you will remember forever.
             </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <div class="footer-top">
+
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="brand">
+
+                    <img
+                        src="logo.jpeg"
+                        alt="THE JEWELS Logo"
+                    >
+
+                    <div class="brand-text">
+
+                        <div class="brand-name">
+                            THE JEWELS
+                        </div>
+
+                        <div class="brand-subtitle">
+                            Fine Jewellery
+                        </div>
+
+                    </div>
+
+                </a>
+
+                <p>
+                    A modern jewellery destination
+                    dedicated to timeless elegance,
+                    refined design and unforgettable moments.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Collections
+                </h4>
+
+                <a href="products.html?category=necklaces">
+                    Necklaces
+                </a>
+
+                <a href="products.html?category=rings">
+                    Rings
+                </a>
+
+                <a href="products.html?category=earrings">
+                    Earrings
+                </a>
+
+                <a href="products.html?category=kadas">
+                    Kadas
+                </a>
+
+                <a href="products.html?category=royal-pendants">
+                    Royal Pendants
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Explore
+                </h4>
+
+                <a href="#collections">
+                    Collections
+                </a>
+
+                <a href="#">
+                    About
+                </a>
+
+                <a href="#">
+                    Contact
+                </a>
+
+                <a href="#">
+                    Privacy
+                </a>
+
+            </div>
+
+
         </div>
 
-        <div class="benefit">
-            <div class="benefit-icon">✦</div>
-            <h3>Elegant Designs</h3>
-            <p>
-                Modern and timeless pieces created
-                for everyday and special occasions.
-            </p>
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 THE JEWELS. All Rights Reserved.
+            </span>
+
+            <span>
+                Crafted with elegance.
+            </span>
+
         </div>
 
-        <div class="benefit">
-            <div class="benefit-icon">♡</div>
-            <h3>Made for You</h3>
-            <p>
-                Jewellery that complements your
-                personality, style and moments.
-            </p>
-        </div>
-
-    </div>
-
-</section>
+    </footer>
 
 
-<!-- FOOTER -->
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
 
-<footer id="contact">
+    <script>
 
-    <div class="footer-top">
+        /* =====================================================
+           NAVBAR SCROLL EFFECT
+        ====================================================== */
 
-        <div class="footer-brand">
-            <div class="logo">THE JEWELS</div>
+        const navbar = document.getElementById("navbar");
 
-            <p>
-                Discover jewellery that reflects
-                your style. Premium collections,
-                elegant designs and timeless beauty.
-            </p>
-        </div>
+        window.addEventListener("scroll", function () {
 
-        <div>
-            <h4>SHOP</h4>
-            <ul>
-                <li><a href="#">Necklaces</a></li>
-                <li><a href="#">Rings</a></li>
-                <li><a href="#">Earrings</a></li>
-                <li><a href="#">Bracelets</a></li>
-            </ul>
-        </div>
+            if (window.scrollY > 40) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
 
-        <div>
-            <h4>HELP</h4>
-            <ul>
-                <li><a href="#">Shipping</a></li>
-                <li><a href="#">Returns</a></li>
-                <li><a href="#">FAQs</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
+        });
 
-        <div>
-            <h4>CONNECT</h4>
-            <ul>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">WhatsApp</a></li>
-                <li><a href="tel:+917483733619">+91 74837 33619</a></li>
-            </ul>
-        </div>
 
-    </div>
+        /* =====================================================
+           COMING SOON
+        ====================================================== */
 
-    <div class="copyright">
-        © 2026 THE JEWELS. ALL RIGHTS RESERVED.
-    </div>
+        function showComingSoon(name) {
 
-</footer>
+            alert(
+                name +
+                " will be added in the next stage."
+            );
+
+        }
+
+
+        /* =====================================================
+           MOBILE MENU
+        ====================================================== */
+
+        function toggleMobileMenu() {
+
+            const nav = document.querySelector(".nav-links");
+
+            if (nav.style.display === "flex") {
+
+                nav.style.display = "none";
+
+            } else {
+
+                nav.style.display = "flex";
+
+                nav.style.position = "absolute";
+                nav.style.top = "86px";
+                nav.style.left = "0";
+                nav.style.right = "0";
+
+                nav.style.padding = "30px";
+
+                nav.style.flexDirection = "column";
+
+                nav.style.background = "rgba(5,5,5,0.98)";
+
+                nav.style.borderBottom =
+                    "1px solid rgba(212,175,112,0.25)";
+
+            }
+
+        }
+
+    </script>
 
 </body>
 </html>
