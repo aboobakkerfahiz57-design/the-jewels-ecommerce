@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>THE JEWELS — Collections</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080808;
+    color: #f5f1e8;
+    font-family: 'Inter', sans-serif;
+}
+
+/* HEADER */
+
+header {
+    height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: #080808;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    letter-spacing: 4px;
+    color: #d9b86c;
+}
+
+nav a {
+    color: #eee;
+    text-decoration: none;
+    margin-left: 28px;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #d9b86c;
+}
+
+/* PAGE TITLE */
+
+.page-title {
+    text-align: center;
+    padding: 75px 20px 45px;
+}
+
+.small-title {
+    color: #c9a85d;
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.page-title h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(45px, 7vw, 75px);
+    font-weight: 500;
+    letter-spacing: 3px;
+}
+
+.page-title p {
+    color: #999;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+/* CATEGORY BUTTONS */
+
+.categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 0 20px 55px;
+}
+
+.category-btn {
+    background: transparent;
+    border: 1px solid rgba(217,184,108,0.45);
+    color: #ddd;
+    padding: 13px 28px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.category-btn:hover,
+.category-btn.active {
+    background: #d9b86c;
+    color: #080808;
+    border-color: #d9b86c;
+}
+
+/* PRODUCTS */
+
+.products {
+    width: 88%;
+    max-width: 1400px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    padding-bottom: 100px;
+}
+
+.product {
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.07);
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.product:hover {
+    transform: translateY(-7px);
+    border-color: rgba(217,184,108,0.5);
+}
+
+.product-image {
+    width: 100%;
+    aspect-ratio: 1 / 1.12;
+    object-fit: cover;
+    display: block;
+    transition: 0.5s;
+}
+
+.product:hover .product-image {
+    transform: scale(1.035);
+}
+
+.product-info {
+    padding: 22px;
+    text-align: center;
+}
+
+.product-category {
+    color: #b99b58;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    margin: 8px 0;
+}
+
+.product-price {
+    color: #ddd;
+    font-size: 14px;
+    margin-bottom: 17px;
+}
+
+.view-btn {
+    display: inline-block;
+    padding: 11px 25px;
+    border: 1px solid #8e743c;
+    color: #d9b86c;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.view-btn:hover {
+    background: #d9b86c;
+    color: #080808;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+    padding: 35px 20px;
+    color: #777;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+footer span {
+    color: #d9b86c;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav a {
+        margin-left: 12px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    header {
+        height: 70px;
+        padding: 0 20px;
+    }
+
+    .brand {
+        font-size: 19px;
+        letter-spacing: 3px;
+    }
+
+    .logo {
+        width: 34px;
+        height: 34px;
+    }
+
+    nav a {
+        display: none;
+    }
+
+    .page-title {
+        padding: 55px 15px 35px;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+
+    .categories {
+        gap: 8px;
+    }
+
+    .category-btn {
+        padding: 11px 16px;
+        font-size: 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo-area">
+
+        <!-- Your THE JEWELS logo -->
+        <img src="logo.png" class="logo" alt="THE JEWELS Logo">
+
+        <div class="brand">THE JEWELS</div>
+
+    </div>
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="products.html">COLLECTIONS</a>
+    </nav>
+
+</header>
+
+
+<section class="page-title">
+
+    <div class="small-title">THE JEWELS</div>
+
+    <h1>Our Collections</h1>
+
+    <p>Discover pieces designed to become part of your story.</p>
+
+</section>
+
+
+<div class="categories">
+
+    <button class="category-btn active" onclick="showCategory('all', this)">
+        All
+    </button>
+
+    <button class="category-btn" onclick="showCategory('necklace', this)">
+        Necklaces
+    </button>
+
+    <button class="category-btn" onclick="showCategory('ring', this)">
+        Rings
+    </button>
+
+    <button class="category-btn" onclick="showCategory('earring', this)">
+        Earrings
+    </button>
+
+    <button class="category-btn" onclick="showCategory('kada', this)">
+        Kadas
+    </button>
+
+</div>
+
+
+<section class="products" id="products">
+
+
+    <!-- NECKLACES -->
+
+    <div class="product necklace">
+
+        <img src="necklace-01.jpeg"
+             class="product-image"
+             alt="THE JEWELS Necklace">
+
+        <div class="product-info">
+
+            <div class="product-category">Necklace</div>
+
+            <div class="product-name">Royal Necklace I</div>
+
+            <div class="product-price">₹2,499</div>
+
+            <a href="#" class="view-btn">View Details</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="product necklace">
+
+        <img src="necklace-02.jpeg"
+             class="product-image"
+             alt="THE JEWELS Necklace">
+
+        <div class="product-info">
+
+            <div class="product-category">Necklace</div>
+
+            <div class="product-name">Royal Necklace II</div>
+
+            <div class="product-price">₹2,799</div>
+
+            <a href="#" class="view-btn">View Details</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="product necklace">
+
+        <img src="necklace-03.jpeg"
+             class="product-image"
+             alt="THE JEWELS Necklace">
+
+        <div class="product-info">
+
+            <div class="product-category">Necklace</div>
+
+            <div class="product-name">Signature Necklace</div>
+
+            <div class="product-price">₹3,199</div>
+
+            <a href="#" class="view-btn">View Details</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="product necklace">
+
+        <img src="necklace-04.jpeg"
+             class="product-image"
+             alt="THE JEWELS Necklace">
+
+        <div class="product-info">
+
+            <div class="product-category">Necklace</div>
+
+            <div class="product-name">Elegance Necklace</div>
+
+            <div class="product-price">₹3,499</div>
+
+            <a href="#" class="view-btn">View Details</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="product necklace">
+
+        <img src="necklace-05.jpeg"
+             class="product-image"
+             alt="THE JEWELS Necklace">
+
+        <div class="product-info">
+
+            <div class="product-category">Necklace</div>
+
+            <div class="product-name">Luxury Necklace</div>
+
+            <div class="product-price">₹3,999</div>
+
+            <a href="#" class="view-btn">View Details</a>
+
+        </div>
+
+    </div>
+
+
+    <!-- RINGS -->
+
+    <div class="product ring">
+
+        <img src="ring-02.jpeg"
+             class="product-image"
+             alt="THE JEWELS Ring">
+
+        <div class="product-info">
+
+            <div class="product-category">Ring</div>
+
+            <div class="product-name">Signature Ring I</div>
+
+            <div class="product-price">₹1,499</div>
+
+            <a href="#" class="view-btn">View Details</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="product ring">
+
+        <img src="ring-03.jpeg"
+             class="product-image"
+             alt="THE JEWELS Ring">
+
+        <div class="product-info">
+
+            <div class="product-category">Ring</div>
+
+            <div class="product-name">Signature Ring II</div>
+
+            <div class="product-price">₹1,699</div>
+
+            <a href="#" class="view-btn">View Details</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="product ring">
+
+        <img src="ring-04.jpeg"
+             class="product-image"
+             alt="THE JEWELS Ring">
+
+        <div class="product-info">
+
+            <div class="product-category">Ring</div>
+
+            <div class="product-name">Royal Ring</div>
+
+            <div class="product-price">₹1,899</div>
+
+            <a href="#" class="view-btn">View Details</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="product ring">
+
+        <img src="ring-05.jpeg"
+             class="product-image"
+             alt="THE JEWELS Ring">
+
+        <div class="product-info">
+
+            <div class="product-category">Ring</div>
+
+            <div class="product-name">Eternity Ring</div>
+
+            <div class="product-price">₹2,099</div>
+
+            <a href="#" class="view-btn">View Details</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="product ring">
+
+        <img src="ring-06.jpeg"
+             class="product-image"
+             alt="THE JEWELS Ring">
+
+        <div class="product-info">
+
+            <div class="product-category">Ring</div>
+
+            <div class="product-name">Classic Ring</div>
+
+            <div class="product-price">₹2,299</div>
+
+            <a href="#" class="view-btn">View Details</a>
+
+        </div>
+
+    </div>
+
+
+    <!-- EARRINGS -->
+
+    <div class="product earring">
+
+        <img src="earring-01.jpeg"
+             class="product-image"
+             alt="THE JEWELS Earrings">
+
+        <div class="product-info">
+
+            <div class="product-category">Earrings</div>
+
+            <div class="product-name">Signature Earrings I</div>
+
+            <div class="product-price">₹899</div>
+
+            <a href="#" class="view-btn">View Details</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="product earring">
+
+        <img src="earring-02.jpeg"
+             class="product-image"
+             alt="THE JEWELS Earrings">
+
+        <div class="product-info">
+
+            <div class="product-category">Earrings</div>
+
+            <div class="product-name">Signature Earrings II</div>
+
+            <div class="product-price">₹999</div>
+
+            <a href="#" class="view-btn">View Details</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="product earring">
+
+        <img src="earring-03.jpeg"
+             class="product-image"
+             alt="THE JEWELS Earrings">
+
+        <div class="product-info">
+
+            <div class="product-category">Earrings</div>
+
+            <div class="product-name">Royal Earrings</div>
+
+            <div class="product-price">₹1,199</div>
+
+            <a href="#" class="view-btn">View Details</a>
+
+        </div>
+
+    </div>
+
+
+    <!-- KADAS -->
+
+    <div class="product kada">
+
+        <img src="kada-01.jpeg"
+             class="product-image"
+             alt="THE JEWELS Kada">
+
+        <div class="product-info">
+
+            <div class="product-category">Kada</div>
+
+            <div class="product-name">Luxury Kada I</div>
+
+            <div class="product-price">₹1,299</div>
+
+            <a href="#" class="view-btn">View Details</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="product kada">
+
+        <img src="kada-02.jpeg"
+             class="product-image"
+             alt="THE JEWELS Kada">
+
+        <div class="product-info">
+
+            <div class="product-category">Kada</div>
+
+            <div class="product-name">Luxury Kada II</div>
+
+            <div class="product-price">₹1,499</div>
+
+            <a href="#" class="view-btn">View Details</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="product kada">
+
+        <img src="kada-03.jpeg"
+             class="product-image"
+             alt="THE JEWELS Kada">
+
+        <div class="product-info">
+
+            <div class="product-category">Kada</div>
+
+            <div class="product-name">Signature Kada</div>
+
+            <div class="product-price">₹1,599</div>
+
+            <a href="#" class="view-btn">View Details</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="product kada">
+
+        <img src="kada-04.jpeg"
+             class="product-image"
+             alt="THE JEWELS Kada">
+
+        <div class="product-info">
+
+            <div class="product-category">Kada</div>
+
+            <div class="product-name">Royal Kada</div>
+
+            <div class="product-price">₹1,799</div>
+
+            <a href="#" class="view-btn">View Details</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="product kada">
+
+        <img src="kada-05.jpeg"
+             class="product-image"
+             alt="THE JEWELS Kada">
+
+        <div class="product-info">
+
+            <div class="product-category">Kada</div>
+
+            <div class="product-name">Eternity Kada</div>
+
+            <div class="product-price">₹1,899</div>
+
+            <a href="#" class="view-btn">View Details</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="product kada">
+
+        <img src="kada-06.jpeg"
+             class="product-image"
+             alt="THE JEWELS Kada">
+
+        <div class="product-info">
+
+            <div class="product-category">Kada</div>
+
+            <div class="product-name">Classic Kada</div>
+
+            <div class="product-price">₹1,999</div>
+
+            <a href="#" class="view-btn">View Details</a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+    © 2026 <span>THE JEWELS</span> — Crafted for Elegance
+</footer>
+
+
+<script>
+
+function showCategory(category, button) {
+
+    const products = document.querySelectorAll('.product');
+    const buttons = document.querySelectorAll('.category-btn');
+
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    button.classList.add('active');
+
+    products.forEach(product => {
+
+        if (category === 'all') {
+            product.style.display = 'block';
+        }
+
+        else if (product.classList.contains(category)) {
+            product.style.display = 'block';
+        }
+
+        else {
+            product.style.display = 'none';
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
