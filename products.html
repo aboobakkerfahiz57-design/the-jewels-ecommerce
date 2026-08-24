@@ -4,10 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>THE JEWELS — Collection</title>
+<title>THE JEWELS | Collection</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+:root{
+    --blue:#0638b8;
+    --blue2:#124dcc;
+    --dark:#071329;
+    --text:#111827;
+    --muted:#687386;
+    --light:#f6f8fc;
+    --border:#e5e9f2;
+}
 
 *{
     margin:0;
@@ -16,202 +28,338 @@
 }
 
 body{
-    background:#080808;
-    color:#f5f2eb;
-    font-family:Inter,sans-serif;
+    font-family:Inter,Arial,sans-serif;
+    color:var(--text);
+    background:#fff;
 }
 
-header{
-    height:90px;
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
+}
+
+/* TOP */
+
+.topbar{
+    height:38px;
+    background:linear-gradient(90deg,#062c91,#073fc8);
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 6%;
+    font-size:12px;
+}
+
+.top-right{
+    display:flex;
+    gap:30px;
+}
+
+/* NAV */
+
+.navbar{
+    height:92px;
     display:flex;
     align-items:center;
     justify-content:space-between;
     padding:0 6%;
-    border-bottom:1px solid rgba(255,255,255,.12);
-    background:#080808;
+    border-bottom:1px solid var(--border);
+    background:#fff;
+    position:sticky;
+    top:0;
+    z-index:100;
 }
 
 .logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo img{
+    width:55px;
     height:55px;
-    width:auto;
+    object-fit:contain;
 }
 
-.back{
-    color:#d9b978;
-    text-decoration:none;
-    font-size:13px;
+.logo-name{
+    font-size:30px;
+    font-weight:700;
     letter-spacing:2px;
-    text-transform:uppercase;
 }
 
-.hero{
-    text-align:center;
-    padding:75px 20px 55px;
+.nav-links{
+    display:flex;
+    gap:38px;
 }
 
-.hero h1{
-    font-family:"Cormorant Garamond",serif;
-    font-size:58px;
-    font-weight:500;
-    letter-spacing:3px;
+.nav-links a{
+    font-size:14px;
+    font-weight:600;
 }
 
-.hero p{
-    margin-top:12px;
-    color:#aaa;
-    font-size:12px;
-    letter-spacing:3px;
-    text-transform:uppercase;
+.nav-links a:hover{
+    color:var(--blue);
 }
 
-.categories{
+.nav-actions{
+    display:flex;
+    gap:18px;
+    align-items:center;
+}
+
+.cart{
+    position:relative;
+    font-size:22px;
+}
+
+.cart-count{
+    position:absolute;
+    top:-9px;
+    right:-10px;
+    background:var(--blue);
+    color:#fff;
+    width:19px;
+    height:19px;
+    border-radius:50%;
     display:flex;
     justify-content:center;
-    gap:12px;
+    align-items:center;
+    font-size:10px;
+}
+
+.menu{
+    display:none;
+}
+
+/* HEADER */
+
+.page-header{
+    text-align:center;
+    padding:70px 20px 45px;
+    background:linear-gradient(180deg,#f8faff,#fff);
+}
+
+.page-header small{
+    color:var(--blue);
+    font-weight:700;
+    letter-spacing:3px;
+}
+
+.page-header h1{
+    font-family:"Playfair Display",serif;
+    font-size:50px;
+    margin:10px 0;
+}
+
+.page-header p{
+    color:var(--muted);
+}
+
+/* CATEGORY BUTTONS */
+
+.filters{
+    display:flex;
+    justify-content:center;
     flex-wrap:wrap;
-    margin-bottom:55px;
-    padding:0 20px;
+    gap:10px;
+    padding:0 20px 40px;
 }
 
-.categories button{
-    background:transparent;
-    border:1px solid #4b4b4b;
-    color:#ddd;
-    padding:12px 25px;
-    cursor:pointer;
-    font-size:11px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    transition:.3s;
+.filters button{
+    background:white;
+    color:var(--text);
+    border:1px solid var(--border);
+    padding:12px 20px;
+    border-radius:30px;
+    font-weight:600;
+    transition:.25s;
 }
 
-.categories button:hover,
-.categories button.active{
-    background:#d9b978;
-    color:#080808;
-    border-color:#d9b978;
+.filters button:hover,
+.filters button.active{
+    background:var(--blue);
+    color:white;
+    border-color:var(--blue);
 }
+
+/* PRODUCTS */
 
 .products{
-    width:88%;
-    max-width:1400px;
+    max-width:1250px;
     margin:auto;
+    padding:0 20px 90px;
+}
+
+.grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:28px;
-    padding-bottom:100px;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
 }
 
 .card{
-    background:#111;
-    border:1px solid rgba(255,255,255,.08);
+    background:white;
+    border:1px solid var(--border);
     overflow:hidden;
-    transition:.4s;
+    box-shadow:0 7px 25px rgba(20,50,100,.06);
+    transition:.3s;
 }
 
 .card:hover{
-    transform:translateY(-6px);
-    border-color:rgba(217,185,120,.5);
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(20,50,100,.12);
 }
 
-.image-box{
-    height:430px;
-    background:#151515;
+.image{
+    height:300px;
+    background:#f7f8fb;
     overflow:hidden;
 }
 
-.image-box img{
+.image img{
     width:100%;
     height:100%;
     object-fit:cover;
-    transition:.6s;
+    transition:.5s;
 }
 
 .card:hover img{
-    transform:scale(1.04);
+    transform:scale(1.05);
 }
 
 .info{
-    padding:22px;
+    padding:18px;
 }
 
-.info h2{
-    font-family:"Cormorant Garamond",serif;
-    font-size:25px;
-    font-weight:500;
+.category-name{
+    color:var(--blue);
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1.5px;
+}
+
+.info h3{
+    margin:8px 0;
+    font-size:17px;
 }
 
 .info p{
-    color:#999;
+    color:var(--muted);
     font-size:12px;
-    margin-top:7px;
+    margin-bottom:15px;
 }
 
-.price{
-    color:#d9b978;
-    margin-top:15px;
-    font-size:14px;
-    letter-spacing:1px;
+.actions{
+    display:flex;
+    gap:8px;
 }
 
-.buy{
-    margin-top:18px;
-    width:100%;
-    padding:12px;
-    background:transparent;
-    color:#d9b978;
-    border:1px solid #d9b978;
-    cursor:pointer;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    font-size:10px;
+.view{
+    flex:1;
+    padding:11px;
+    border:1px solid var(--blue);
+    background:white;
+    color:var(--blue);
+    font-weight:700;
 }
 
-.buy:hover{
-    background:#d9b978;
-    color:#080808;
+.add{
+    flex:1;
+    padding:11px;
+    border:1px solid var(--blue);
+    background:var(--blue);
+    color:white;
+    font-weight:700;
 }
+
+.add:hover{
+    background:#052b91;
+}
+
+/* FOOTER */
 
 footer{
-    border-top:1px solid rgba(255,255,255,.1);
+    background:var(--dark);
+    color:white;
+    padding:50px 6%;
     text-align:center;
-    padding:35px;
-    color:#777;
-    font-size:10px;
-    letter-spacing:2px;
 }
 
-@media(max-width:900px){
-    .products{
+footer img{
+    width:60px;
+    margin-bottom:12px;
+}
+
+footer h2{
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+
+footer p{
+    color:#aeb8ca;
+    font-size:13px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu{
+        display:block;
+        border:0;
+        background:none;
+        font-size:23px;
+    }
+
+    .top-right{
+        display:none;
+    }
+
+    .grid{
         grid-template-columns:repeat(2,1fr);
     }
 }
 
 @media(max-width:600px){
-    header{
+
+    .navbar{
         height:75px;
         padding:0 5%;
     }
 
-    .logo{
-        height:42px;
+    .logo img{
+        width:43px;
+        height:43px;
     }
 
-    .hero{
-        padding:55px 15px 40px;
+    .logo-name{
+        font-size:21px;
     }
 
-    .hero h1{
-        font-size:43px;
+    .page-header{
+        padding:50px 15px 35px;
     }
 
-    .products{
-        width:92%;
+    .page-header h1{
+        font-size:38px;
+    }
+
+    .grid{
         grid-template-columns:1fr;
     }
 
-    .image-box{
-        height:450px;
+    .image{
+        height:330px;
     }
 }
 </style>
@@ -219,349 +367,594 @@ footer{
 
 <body>
 
-<header>
-    <a href="index.html">
-        <img src="logo.png" class="logo" alt="THE JEWELS">
+<div class="topbar">
+    <div>Timeless Elegance. Crafted for You. 💎</div>
+
+    <div class="top-right">
+        <span>🛡 100% Certified Jewellery</span>
+        <span>🚚 Free Shipping & Returns</span>
+    </div>
+</div>
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+        <img src="logo.png" alt="THE JEWELS">
+        <div class="logo-name">THE JEWELS</div>
     </a>
 
-    <a href="index.html" class="back">← Home</a>
+    <nav class="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="products.html">COLLECTION</a>
+    </nav>
+
+    <div class="nav-actions">
+        <span class="cart">
+            🛍
+            <span class="cart-count" id="cartCount">0</span>
+        </span>
+
+        <button class="menu">☰</button>
+    </div>
+
 </header>
 
-<section class="hero">
-    <h1>The Collection</h1>
-    <p>Timeless pieces · Designed to shine</p>
+<section class="page-header">
+
+    <small>THE JEWELS</small>
+
+    <h1 id="pageTitle">Our Collection</h1>
+
+    <p id="pageDescription">
+        Discover jewellery crafted for timeless elegance.
+    </p>
+
 </section>
 
-<div class="categories">
-    <button class="active" onclick="showCategory('all',this)">All</button>
-    <button onclick="showCategory('necklace',this)">Necklaces</button>
-    <button onclick="showCategory('ring',this)">Rings</button>
-    <button onclick="showCategory('kada',this)">Kada</button>
-    <button onclick="showCategory('earring',this)">Earrings</button>
+<div class="filters">
+
+    <button onclick="showCategory('all',this)">ALL</button>
+
+    <button onclick="showCategory('necklace',this)">
+        NECKLACES
+    </button>
+
+    <button onclick="showCategory('ring',this)">
+        RINGS
+    </button>
+
+    <button onclick="showCategory('earring',this)">
+        EARRINGS
+    </button>
+
+    <button onclick="showCategory('kada',this)">
+        KADA
+    </button>
+
+    <button onclick="showCategory('pendant',this)">
+        ROYAL PENDANTS
+    </button>
+
 </div>
 
 <section class="products">
 
-    <!-- NECKLACES -->
+<div class="grid">
 
-    <div class="card necklace">
-        <div class="image-box">
-            <img src="necklace-01.jpeg" alt="Necklace">
-        </div>
-        <div class="info">
-            <h2>Royal Necklace</h2>
-            <p>Signature Collection</p>
-            <div class="price">₹ —</div>
-            <button class="buy">View Details</button>
+<!-- NECKLACES -->
+
+<div class="card necklace">
+    <div class="image">
+        <img src="necklace-01.jpeg" alt="Necklace">
+    </div>
+    <div class="info">
+        <span class="category-name">NECKLACE</span>
+        <h3>Elegant Necklace 01</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Elegant Necklace 01','necklace-01.jpeg')">ADD</button>
         </div>
     </div>
+</div>
 
-    <div class="card necklace">
-        <div class="image-box">
-            <img src="necklace-02.jpeg" alt="Necklace">
-        </div>
-        <div class="info">
-            <h2>Elegance Necklace</h2>
-            <p>Luxury Collection</p>
-            <div class="price">₹ —</div>
-            <button class="buy">View Details</button>
+<div class="card necklace">
+    <div class="image">
+        <img src="necklace-02.jpeg" alt="Necklace">
+    </div>
+    <div class="info">
+        <span class="category-name">NECKLACE</span>
+        <h3>Elegant Necklace 02</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Elegant Necklace 02','necklace-02.jpeg')">ADD</button>
         </div>
     </div>
+</div>
 
-    <div class="card necklace">
-        <div class="image-box">
-            <img src="necklace-03.jpeg" alt="Necklace">
-        </div>
-        <div class="info">
-            <h2>Classic Necklace</h2>
-            <p>Signature Collection</p>
-            <div class="price">₹ —</div>
-            <button class="buy">View Details</button>
+<div class="card necklace">
+    <div class="image">
+        <img src="necklace-03.jpeg" alt="Necklace">
+    </div>
+    <div class="info">
+        <span class="category-name">NECKLACE</span>
+        <h3>Elegant Necklace 03</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Elegant Necklace 03','necklace-03.jpeg')">ADD</button>
         </div>
     </div>
+</div>
 
-    <div class="card necklace">
-        <div class="image-box">
-            <img src="necklace-04.jpeg" alt="Necklace">
-        </div>
-        <div class="info">
-            <h2>Diamond Grace</h2>
-            <p>Premium Collection</p>
-            <div class="price">₹ —</div>
-            <button class="buy">View Details</button>
+<div class="card necklace">
+    <div class="image">
+        <img src="necklace-04.jpeg" alt="Necklace">
+    </div>
+    <div class="info">
+        <span class="category-name">NECKLACE</span>
+        <h3>Elegant Necklace 04</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Elegant Necklace 04','necklace-04.jpeg')">ADD</button>
         </div>
     </div>
+</div>
 
-    <div class="card necklace">
-        <div class="image-box">
-            <img src="necklace-05.jpeg" alt="Necklace">
-        </div>
-        <div class="info">
-            <h2>Royal Grace</h2>
-            <p>Luxury Collection</p>
-            <div class="price">₹ —</div>
-            <button class="buy">View Details</button>
+<div class="card necklace">
+    <div class="image">
+        <img src="necklace-05.jpeg" alt="Necklace">
+    </div>
+    <div class="info">
+        <span class="category-name">NECKLACE</span>
+        <h3>Elegant Necklace 05</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Elegant Necklace 05','necklace-05.jpeg')">ADD</button>
         </div>
     </div>
+</div>
 
+<!-- RINGS -->
 
-    <!-- RINGS -->
-
-    <div class="card ring">
-        <div class="image-box">
-            <img src="ring 02.jpeg" alt="Ring">
-        </div>
-        <div class="info">
-            <h2>Signature Ring</h2>
-            <p>Signature Collection</p>
-            <div class="price">₹ —</div>
-            <button class="buy">View Details</button>
+<div class="card ring">
+    <div class="image">
+        <img src="rings 01.jpeg" alt="Ring">
+    </div>
+    <div class="info">
+        <span class="category-name">RING</span>
+        <h3>Royal Ring 01</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Royal Ring 01','rings 01.jpeg')">ADD</button>
         </div>
     </div>
+</div>
 
-    <div class="card ring">
-        <div class="image-box">
-            <img src="ring 03.jpeg" alt="Ring">
-        </div>
-        <div class="info">
-            <h2>Royal Ring</h2>
-            <p>Luxury Collection</p>
-            <div class="price">₹ —</div>
-            <button class="buy">View Details</button>
+<div class="card ring">
+    <div class="image">
+        <img src="ring 02.jpeg" alt="Ring">
+    </div>
+    <div class="info">
+        <span class="category-name">RING</span>
+        <h3>Royal Ring 02</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Royal Ring 02','ring 02.jpeg')">ADD</button>
         </div>
     </div>
+</div>
 
-    <div class="card ring">
-        <div class="image-box">
-            <img src="ring 04.jpeg" alt="Ring">
-        </div>
-        <div class="info">
-            <h2>Classic Ring</h2>
-            <p>Premium Collection</p>
-            <div class="price">₹ —</div>
-            <button class="buy">View Details</button>
+<div class="card ring">
+    <div class="image">
+        <img src="ring 03.jpeg" alt="Ring">
+    </div>
+    <div class="info">
+        <span class="category-name">RING</span>
+        <h3>Royal Ring 03</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Royal Ring 03','ring 03.jpeg')">ADD</button>
         </div>
     </div>
+</div>
 
-    <div class="card ring">
-        <div class="image-box">
-            <img src="ring 05.jpeg" alt="Ring">
-        </div>
-        <div class="info">
-            <h2>Elegant Ring</h2>
-            <p>Signature Collection</p>
-            <div class="price">₹ —</div>
-            <button class="buy">View Details</button>
+<div class="card ring">
+    <div class="image">
+        <img src="ring 04.jpeg" alt="Ring">
+    </div>
+    <div class="info">
+        <span class="category-name">RING</span>
+        <h3>Royal Ring 04</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Royal Ring 04','ring 04.jpeg')">ADD</button>
         </div>
     </div>
+</div>
 
-
-    <!-- KADA -->
-
-    <div class="card kada">
-        <div class="image-box">
-            <img src="kada-01.jpeg" alt="Kada">
-        </div>
-        <div class="info">
-            <h2>Signature Kada</h2>
-            <p>Signature Collection</p>
-            <div class="price">₹ —</div>
-            <button class="buy">View Details</button>
+<div class="card ring">
+    <div class="image">
+        <img src="ring 05.jpeg" alt="Ring">
+    </div>
+    <div class="info">
+        <span class="category-name">RING</span>
+        <h3>Royal Ring 05</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Royal Ring 05','ring 05.jpeg')">ADD</button>
         </div>
     </div>
+</div>
 
-    <div class="card kada">
-        <div class="image-box">
-            <img src="kada-02.jpeg" alt="Kada">
-        </div>
-        <div class="info">
-            <h2>Royal Kada</h2>
-            <p>Luxury Collection</p>
-            <div class="price">₹ —</div>
-            <button class="buy">View Details</button>
+<div class="card ring">
+    <div class="image">
+        <img src="ring 06.jpeg" alt="Ring">
+    </div>
+    <div class="info">
+        <span class="category-name">RING</span>
+        <h3>Royal Ring 06</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Royal Ring 06','ring 06.jpeg')">ADD</button>
         </div>
     </div>
+</div>
 
-    <div class="card kada">
-        <div class="image-box">
-            <img src="kada-03.jpeg" alt="Kada">
-        </div>
-        <div class="info">
-            <h2>Diamond Kada</h2>
-            <p>Premium Collection</p>
-            <div class="price">₹ —</div>
-            <button class="buy">View Details</button>
+<!-- EARRINGS -->
+
+<div class="card earring">
+    <div class="image">
+        <img src="earring 01.jpeg" alt="Earrings">
+    </div>
+    <div class="info">
+        <span class="category-name">EARRINGS</span>
+        <h3>Elegant Earrings 01</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Elegant Earrings 01','earring 01.jpeg')">ADD</button>
         </div>
     </div>
+</div>
 
-    <div class="card kada">
-        <div class="image-box">
-            <img src="kada-04.jpeg" alt="Kada">
-        </div>
-        <div class="info">
-            <h2>Classic Kada</h2>
-            <p>Signature Collection</p>
-            <div class="price">₹ —</div>
-            <button class="buy">View Details</button>
+<div class="card earring">
+    <div class="image">
+        <img src="earring 02.jpeg" alt="Earrings">
+    </div>
+    <div class="info">
+        <span class="category-name">EARRINGS</span>
+        <h3>Elegant Earrings 02</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Elegant Earrings 02','earring 02.jpeg')">ADD</button>
         </div>
     </div>
+</div>
 
-    <div class="card kada">
-        <div class="image-box">
-            <img src="kada-05.jpeg" alt="Kada">
-        </div>
-        <div class="info">
-            <h2>Elegant Kada</h2>
-            <p>Luxury Collection</p>
-            <div class="price">₹ —</div>
-            <button class="buy">View Details</button>
+<div class="card earring">
+    <div class="image">
+        <img src="earring 03.jpeg" alt="Earrings">
+    </div>
+    <div class="info">
+        <span class="category-name">EARRINGS</span>
+        <h3>Signature Earrings</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Signature Earrings','earring 03.jpeg')">ADD</button>
         </div>
     </div>
+</div>
 
-    <div class="card kada">
-        <div class="image-box">
-            <img src="kada-06.jpeg" alt="Kada">
-        </div>
-        <div class="info">
-            <h2>Royal Signature</h2>
-            <p>Premium Collection</p>
-            <div class="price">₹ —</div>
-            <button class="buy">View Details</button>
+<!-- KADA -->
+
+<div class="card kada">
+    <div class="image">
+        <img src="kada-01.jpeg" alt="Kada">
+    </div>
+    <div class="info">
+        <span class="category-name">KADA</span>
+        <h3>Premium Kada 01</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Premium Kada 01','kada-01.jpeg')">ADD</button>
         </div>
     </div>
+</div>
 
-
-    <!-- EARRINGS -->
-
-    <div class="card earring">
-        <div class="image-box">
-            <img src="earring 01.jpeg" alt="Earrings">
-        </div>
-        <div class="info">
-            <h2>Royal Earrings</h2>
-            <p>Signature Collection</p>
-            <div class="price">₹ —</div>
-            <button class="buy">View Details</button>
+<div class="card kada">
+    <div class="image">
+        <img src="kada-02.jpeg" alt="Kada">
+    </div>
+    <div class="info">
+        <span class="category-name">KADA</span>
+        <h3>Premium Kada 02</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Premium Kada 02','kada-02.jpeg')">ADD</button>
         </div>
     </div>
+</div>
 
-    <div class="card earring">
-        <div class="image-box">
-            <img src="earring 02.jpeg" alt="Earrings">
-        </div>
-        <div class="info">
-            <h2>Elegant Earrings</h2>
-            <p>Luxury Collection</p>
-            <div class="price">₹ —</div>
-            <button class="buy">View Details</button>
+<div class="card kada">
+    <div class="image">
+        <img src="kada-03.jpeg" alt="Kada">
+    </div>
+    <div class="info">
+        <span class="category-name">KADA</span>
+        <h3>Premium Kada 03</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Premium Kada 03','kada-03.jpeg')">ADD</button>
         </div>
     </div>
+</div>
 
-    <div class="card earring">
-        <div class="image-box">
-            <img src="earring 03.jpeg" alt="Earrings">
-        </div>
-        <div class="info">
-            <h2>Signature Earrings</h2>
-            <p>Premium Collection</p>
-            <div class="price">₹ —</div>
-            <button class="buy">View Details</button>
+<div class="card kada">
+    <div class="image">
+        <img src="kada-04.jpeg" alt="Kada">
+    </div>
+    <div class="info">
+        <span class="category-name">KADA</span>
+        <h3>Premium Kada 04</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Premium Kada 04','kada-04.jpeg')">ADD</button>
         </div>
     </div>
+</div>
 
+<div class="card kada">
+    <div class="image">
+        <img src="kada-05.jpeg" alt="Kada">
+    </div>
+    <div class="info">
+        <span class="category-name">KADA</span>
+        <h3>Premium Kada 05</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Premium Kada 05','kada-05.jpeg')">ADD</button>
+        </div>
+    </div>
+</div>
+
+<div class="card kada">
+    <div class="image">
+        <img src="kada-06.jpeg" alt="Kada">
+    </div>
+    <div class="info">
+        <span class="category-name">KADA</span>
+        <h3>Premium Kada 06</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Premium Kada 06','kada-06.jpeg')">ADD</button>
+        </div>
+    </div>
+</div>
+
+<!-- ROYAL PENDANTS -->
+
+<div class="card pendant">
+    <div class="image">
+        <img src="royal-pendants 01.jpeg" alt="Royal Pendant">
+    </div>
+    <div class="info">
+        <span class="category-name">ROYAL PENDANT</span>
+        <h3>Royal Pendant 01</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Royal Pendant 01','royal-pendants 01.jpeg')">ADD</button>
+        </div>
+    </div>
+</div>
+
+<div class="card pendant">
+    <div class="image">
+        <img src="royal-pendant 02.jpeg" alt="Royal Pendant">
+    </div>
+    <div class="info">
+        <span class="category-name">ROYAL PENDANT</span>
+        <h3>Royal Pendant 02</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Royal Pendant 02','royal-pendant 02.jpeg')">ADD</button>
+        </div>
+    </div>
+</div>
+
+<div class="card pendant">
+    <div class="image">
+        <img src="royal-pendant 03.jpeg" alt="Royal Pendant">
+    </div>
+    <div class="info">
+        <span class="category-name">ROYAL PENDANT</span>
+        <h3>Royal Pendant 03</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Royal Pendant 03','royal-pendant 03.jpeg')">ADD</button>
+        </div>
+    </div>
+</div>
+
+<div class="card pendant">
+    <div class="image">
+        <img src="royal-pendant 04.jpeg" alt="Royal Pendant">
+    </div>
+    <div class="info">
+        <span class="category-name">ROYAL PENDANT</span>
+        <h3>Royal Pendant 04</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Royal Pendant 04','royal-pendant 04.jpeg')">ADD</button>
+        </div>
+    </div>
+</div>
+
+<div class="card pendant">
+    <div class="image">
+        <img src="royal-pendant 05.jpeg" alt="Royal Pendant">
+    </div>
+    <div class="info">
+        <span class="category-name">ROYAL PENDANT</span>
+        <h3>Royal Pendant 05</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Royal Pendant 05','royal-pendant 05.jpeg')">ADD</button>
+        </div>
+    </div>
+</div>
+
+<div class="card pendant">
+    <div class="image">
+        <img src="royal-pendant 06.jpeg" alt="Royal Pendant">
+    </div>
+    <div class="info">
+        <span class="category-name">ROYAL PENDANT</span>
+        <h3>Royal Pendant 06</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Royal Pendant 06','royal-pendant 06.jpeg')">ADD</button>
+        </div>
+    </div>
+</div>
+
+<div class="card pendant">
+    <div class="image">
+        <img src="royal-pendant 07.jpeg" alt="Royal Pendant">
+    </div>
+    <div class="info">
+        <span class="category-name">ROYAL PENDANT</span>
+        <h3>Royal Pendant 07</h3>
+        <p>Premium Collection</p>
+        <div class="actions">
+            <button class="view">VIEW</button>
+            <button class="add" onclick="addToCart('Royal Pendant 07','royal-pendant 07.jpeg')">ADD</button>
+        </div>
+    </div>
+</div>
+
+</div>
 </section>
 
 <footer>
-    THE JEWELS · LUXURY JEWELLERY
+    <img src="logo.png" alt="THE JEWELS">
+    <h2>THE JEWELS</h2>
+    <p>Luxury Jewellery • Timeless Elegance</p>
 </footer>
 
 <script>
-function showCategory(category, button) {
 
-    // Remove active state from all buttons
-    document.querySelectorAll(".categories button").forEach(function(btn) {
-        btn.classList.remove("active");
+let cart = JSON.parse(localStorage.getItem("theJewelsCart") || "[]");
+
+function updateCart(){
+    document.getElementById("cartCount").textContent = cart.length;
+}
+
+function addToCart(name,image){
+
+    cart.push({
+        name:name,
+        image:image
     });
 
-    // Activate selected button
-    if (button) {
-        button.classList.add("active");
-    }
+    localStorage.setItem(
+        "theJewelsCart",
+        JSON.stringify(cart)
+    );
 
-    // Find all products
-    const products = document.querySelectorAll(".card");
+    updateCart();
 
-    // Show/hide products
-    products.forEach(function(product) {
+    alert(name + " added to cart.");
+}
 
-        if (category === "all") {
-            product.style.display = "block";
-        }
-        else if (product.classList.contains(category)) {
-            product.style.display = "block";
-        }
-        else {
-            product.style.display = "none";
-        }
+function showCategory(category,button){
 
-    });
+    document
+        .querySelectorAll(".filters button")
+        .forEach(btn => btn.classList.remove("active"));
 
-    // Change page title
+    button.classList.add("active");
+
+    document
+        .querySelectorAll(".card")
+        .forEach(card => {
+
+            if(category === "all"){
+                card.style.display = "block";
+            }
+            else if(card.classList.contains(category)){
+                card.style.display = "block";
+            }
+            else{
+                card.style.display = "none";
+            }
+
+        });
+
     const titles = {
-        all: "The Collection",
-        necklace: "Necklaces",
-        ring: "Rings",
-        kada: "Kada",
-        earring: "Earrings"
+        all:"Our Collection",
+        necklace:"Necklaces",
+        ring:"Rings",
+        earring:"Earrings",
+        kada:"Kada",
+        pendant:"Royal Pendants"
     };
 
-    const title = document.getElementById("pageTitle");
-
-    if (title && titles[category]) {
-        title.textContent = titles[category];
-    }
+    document.getElementById("pageTitle").textContent =
+        titles[category];
 }
 
+/* URL CATEGORY */
 
-// Read category from homepage URL
-function loadCategory() {
+const params = new URLSearchParams(window.location.search);
+const selected = params.get("category");
 
-    const params = new URLSearchParams(window.location.search);
-    const category = params.get("category");
+const buttons = document.querySelectorAll(".filters button");
 
-    const validCategories = [
-        "all",
-        "necklace",
-        "ring",
-        "kada",
-        "earring"
-    ];
+if(selected){
 
-    if (validCategories.includes(category)) {
+    const map = {
+        necklace:1,
+        ring:2,
+        earring:3,
+        kada:4,
+        pendant:5
+    };
 
-        const button = document.querySelector(
-            '[data-category="' + category + '"]'
-        );
-
-        showCategory(category, button);
-
-    }
-    else {
-
-        const allButton = document.querySelector(
-            '[data-category="all"]'
-        );
-
-        showCategory("all", allButton);
-
+    if(map[selected]){
+        showCategory(selected,buttons[map[selected]]);
     }
 }
+else{
+    showCategory("all",buttons[0]);
+}
 
+updateCart();
 
-// Run when page opens
-document.addEventListener("DOMContentLoaded", function() {
-    loadCategory();
-});
 </script>
+
 </body>
 </html>
