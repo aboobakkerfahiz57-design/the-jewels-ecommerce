@@ -6,21 +6,9 @@
 
 <title>THE JEWELS | Luxury Jewellery</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<meta name="description" content="THE JEWELS - Premium jewellery crafted for timeless elegance.">
 
 <style>
-:root{
-    --blue:#0638b8;
-    --blue2:#124dcc;
-    --dark:#071329;
-    --text:#111827;
-    --muted:#687386;
-    --light:#f6f8fc;
-    --border:#e5e9f2;
-}
-
 *{
     margin:0;
     padding:0;
@@ -32,308 +20,326 @@ html{
 }
 
 body{
-    font-family:Inter,Arial,sans-serif;
-    color:var(--text);
-    background:white;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#ffffff;
+    color:#111111;
 }
 
-a{
-    text-decoration:none;
-    color:inherit;
-}
+/* =========================
+   TOP BAR
+========================= */
 
-button{
-    font-family:inherit;
-    cursor:pointer;
-}
-
-/* TOP BAR */
-
-.topbar{
+.top-bar{
     height:38px;
-    background:linear-gradient(90deg,#062c91,#073fc8);
-    color:white;
+    background:#073db8;
+    color:#ffffff;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 6%;
-    font-size:12px;
+    padding:0 6.5%;
+    font-size:13px;
+    font-weight:500;
 }
 
 .top-right{
     display:flex;
-    gap:30px;
+    gap:28px;
 }
 
-/* NAVBAR */
+/* =========================
+   NAVIGATION
+========================= */
 
 .navbar{
-    height:92px;
-    background:white;
+    height:105px;
+    background:#ffffff;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 6%;
-    border-bottom:1px solid var(--border);
+    padding:0 6.5%;
+    border-bottom:1px solid #eeeeee;
     position:sticky;
     top:0;
     z-index:1000;
 }
 
-.logo{
+.logo-area{
     display:flex;
     align-items:center;
-    gap:12px;
+    text-decoration:none;
+    color:#111111;
 }
 
-.logo img{
-    width:55px;
-    height:55px;
+.logo{
+    width:62px;
+    height:70px;
     object-fit:contain;
+    margin-right:12px;
 }
 
-.logo-name{
-    font-size:30px;
-    font-weight:700;
-    letter-spacing:2px;
+.brand-name{
+    font-size:32px;
+    font-weight:800;
+    letter-spacing:-1.5px;
 }
 
 .nav-links{
     display:flex;
-    gap:38px;
     align-items:center;
+    gap:48px;
 }
 
 .nav-links a{
-    font-size:14px;
+    text-decoration:none;
+    color:#111111;
+    font-size:15px;
     font-weight:600;
-    transition:.25s;
+    padding:40px 0;
+    position:relative;
 }
 
 .nav-links a:hover,
 .nav-links a.active{
-    color:var(--blue);
+    color:#073db8;
+}
+
+.nav-links a.active::after{
+    content:"";
+    position:absolute;
+    bottom:28px;
+    left:0;
+    width:100%;
+    height:2px;
+    background:#073db8;
 }
 
 .nav-actions{
     display:flex;
     align-items:center;
-    gap:22px;
+    gap:25px;
 }
 
-.icon{
-    border:0;
-    background:white;
-    font-size:23px;
+.icon-button{
+    border:none;
+    background:none;
+    cursor:pointer;
+    font-size:25px;
+    color:#111111;
     position:relative;
 }
 
 .cart-count{
     position:absolute;
-    top:-9px;
+    top:-10px;
     right:-10px;
-    width:19px;
-    height:19px;
+    width:20px;
+    height:20px;
     border-radius:50%;
-    background:var(--blue);
+    background:#073db8;
     color:white;
-    font-size:10px;
+    font-size:11px;
     display:flex;
     align-items:center;
     justify-content:center;
+    font-weight:bold;
 }
 
-.menu{
-    display:none;
-    font-size:25px;
+.menu-button{
+    font-size:28px;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
-    min-height:600px;
-    background-image:url("home-hero.jpeg");
+    min-height:520px;
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.96) 0%,
+            rgba(255,255,255,.82) 36%,
+            rgba(255,255,255,.10) 70%,
+            rgba(255,255,255,0) 100%
+        ),
+        url("home-hero.jpeg");
+
     background-size:cover;
     background-position:center;
-    position:relative;
     display:flex;
     align-items:center;
-}
-
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        90deg,
-        rgba(255,255,255,.96) 0%,
-        rgba(255,255,255,.85) 34%,
-        rgba(255,255,255,.15) 67%,
-        rgba(255,255,255,0) 100%
-    );
+    padding:70px 9%;
 }
 
 .hero-content{
-    position:relative;
-    z-index:2;
-    width:90%;
-    max-width:1200px;
-    margin:auto;
+    max-width:560px;
 }
 
-.small-title{
-    color:var(--blue);
-    font-size:14px;
+.hero-small{
+    color:#073db8;
+    font-size:16px;
     font-weight:700;
-    letter-spacing:3px;
-    margin-bottom:18px;
+    letter-spacing:2px;
+    margin-bottom:15px;
 }
 
 .hero h1{
-    font-family:"Playfair Display",serif;
-    font-size:64px;
-    line-height:1.08;
-    max-width:570px;
+    font-size:54px;
+    line-height:1.05;
+    font-weight:800;
     margin-bottom:20px;
 }
 
 .hero h1 span{
-    color:var(--blue);
+    color:#073db8;
 }
 
 .hero p{
+    font-size:18px;
+    line-height:1.6;
+    color:#444444;
     max-width:500px;
-    color:#4d5666;
-    line-height:1.7;
     margin-bottom:30px;
 }
 
-.buttons{
+.hero-buttons{
     display:flex;
-    gap:14px;
+    gap:16px;
 }
 
-.btn{
-    padding:15px 28px;
+.primary-btn,
+.secondary-btn{
+    padding:15px 27px;
     border-radius:2px;
-    border:1px solid var(--blue);
+    text-decoration:none;
+    font-size:14px;
     font-weight:700;
-    font-size:13px;
-    transition:.25s;
+    transition:.25s ease;
 }
 
-.btn-primary{
-    background:var(--blue);
-    color:white;
+.primary-btn{
+    background:#073db8;
+    color:#ffffff;
+    border:1px solid #073db8;
 }
 
-.btn-primary:hover{
-    background:#052b91;
+.primary-btn:hover{
+    background:#052d8c;
 }
 
-.btn-outline{
-    color:var(--blue);
-    background:white;
+.secondary-btn{
+    background:#ffffff;
+    color:#073db8;
+    border:1px solid #073db8;
 }
 
-.btn-outline:hover{
-    background:#eef3ff;
+.secondary-btn:hover{
+    background:#073db8;
+    color:#ffffff;
 }
 
-/* COLLECTION */
+/* =========================
+   SECTION TITLE
+========================= */
 
-.collection{
-    padding:85px 6%;
+.section{
+    padding:65px 6.5%;
 }
 
-.heading{
+.section-heading{
     text-align:center;
-    margin-bottom:50px;
+    margin-bottom:38px;
 }
 
-.heading small{
-    color:var(--blue);
+.section-label{
+    color:#073db8;
+    font-size:14px;
     font-weight:700;
     letter-spacing:2px;
+    margin-bottom:8px;
 }
 
-.heading h2{
-    font-family:"Playfair Display",serif;
-    font-size:42px;
-    margin-top:8px;
+.section-heading h2{
+    font-size:34px;
+    font-weight:800;
 }
 
 .heading-line{
-    width:65px;
-    height:3px;
-    background:var(--blue);
-    margin:16px auto 0;
+    width:85px;
+    height:2px;
+    background:#073db8;
+    margin:14px auto 0;
 }
 
-/* CATEGORY GRID */
+/* =========================
+   CATEGORY GRID
+========================= */
 
 .category-grid{
-    max-width:1250px;
-    margin:auto;
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:22px;
+    grid-template-columns:repeat(5,1fr);
+    gap:20px;
 }
 
-.category{
-    background:white;
-    border:1px solid var(--border);
-    box-shadow:0 8px 30px rgba(20,50,100,.07);
-    transition:.3s;
+.category-card{
+    background:#ffffff;
+    border:1px solid #e8e8e8;
+    border-radius:5px;
     overflow:hidden;
+    cursor:pointer;
+    transition:.3s ease;
+    box-shadow:0 4px 16px rgba(0,0,0,.06);
 }
 
-.category:hover{
+.category-card:hover{
     transform:translateY(-6px);
-    box-shadow:0 18px 40px rgba(20,50,100,.13);
+    box-shadow:0 12px 30px rgba(7,61,184,.14);
 }
 
 .category-image{
-    height:260px;
+    width:100%;
+    height:220px;
+    background:#f7f8fc;
     overflow:hidden;
-    background:#f7f8fb;
 }
 
 .category-image img{
     width:100%;
     height:100%;
     object-fit:cover;
-    transition:.5s;
+    display:block;
+    transition:.4s ease;
 }
 
-.category:hover img{
+.category-card:hover .category-image img{
     transform:scale(1.05);
 }
 
 .category-info{
-    padding:22px;
     text-align:center;
+    padding:20px 12px 23px;
 }
 
 .category-info h3{
-    font-size:18px;
-    margin-bottom:10px;
+    font-size:17px;
+    margin-bottom:9px;
 }
 
-.category-info a{
-    color:var(--blue);
-    font-size:12px;
+.category-info span{
+    color:#073db8;
+    font-size:13px;
     font-weight:700;
-    letter-spacing:1px;
 }
 
-/* TRUST */
+/* =========================
+   TRUST SECTION
+========================= */
 
-.trust{
-    margin:0 5%;
-    background:#f5f7fc;
-    border-radius:15px;
-    padding:30px;
+.trust-section{
+    margin:0 6.5% 65px;
+    background:#f5f7fd;
+    border-radius:12px;
+    padding:32px 30px;
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:25px;
@@ -346,196 +352,199 @@ button{
 }
 
 .trust-icon{
-    width:48px;
-    height:48px;
+    width:52px;
+    height:52px;
+    border:2px solid #073db8;
     border-radius:50%;
-    background:white;
-    color:var(--blue);
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:21px;
+    color:#073db8;
+    font-size:22px;
+    flex-shrink:0;
 }
 
-.trust h4{
+.trust-item h4{
     font-size:14px;
+    color:#073db8;
     margin-bottom:5px;
 }
 
-.trust p{
-    font-size:12px;
-    color:var(--muted);
+.trust-item p{
+    color:#555555;
+    font-size:13px;
+    line-height:1.4;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-    margin-top:80px;
-    background:#071329;
-    color:white;
-    padding:55px 6%;
+    background:#073db8;
+    color:#ffffff;
+    text-align:center;
+    padding:35px 20px;
 }
 
-.footer-grid{
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr 1fr;
-    gap:40px;
-    max-width:1250px;
-    margin:auto;
+.footer-logo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:12px;
 }
 
-.footer-brand img{
-    width:65px;
-    filter:none;
-    margin-bottom:15px;
+.footer-logo img{
+    width:48px;
+    height:55px;
+    object-fit:contain;
+    margin-right:10px;
 }
 
-.footer-brand h2{
-    font-size:25px;
-    letter-spacing:2px;
+.footer-brand{
+    font-size:24px;
+    font-weight:800;
 }
 
-.footer-brand p{
-    color:#aeb8ca;
-    margin-top:15px;
-    max-width:350px;
-    line-height:1.7;
+footer p{
     font-size:13px;
+    opacity:.9;
 }
 
-footer h4{
-    margin-bottom:17px;
+/* =========================
+   MOBILE
+========================= */
+
+.mobile-menu{
+    display:none;
 }
 
-footer a{
-    display:block;
-    color:#aeb8ca;
-    margin-bottom:11px;
-    font-size:13px;
-}
-
-.footer-bottom{
-    max-width:1250px;
-    margin:40px auto 0;
-    padding-top:20px;
-    border-top:1px solid rgba(255,255,255,.12);
-    color:#8e9bb0;
-    font-size:12px;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
+@media(max-width:1100px){
 
     .nav-links{
-        display:none;
+        gap:25px;
     }
 
-    .menu{
-        display:block;
+    .category-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+}
+
+@media(max-width:800px){
+
+    .top-bar{
+        padding:0 20px;
+        font-size:11px;
     }
 
     .top-right{
         display:none;
     }
 
-    .hero{
-        min-height:650px;
-        background-position:62% center;
+    .navbar{
+        height:82px;
+        padding:0 20px;
     }
 
-    .hero::before{
-        background:linear-gradient(
-            90deg,
-            rgba(255,255,255,.97),
-            rgba(255,255,255,.72),
-            rgba(255,255,255,.05)
-        );
+    .logo{
+        width:48px;
+        height:55px;
+    }
+
+    .brand-name{
+        font-size:23px;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .nav-actions{
+        gap:15px;
+    }
+
+    .hero{
+        min-height:600px;
+        padding:50px 25px;
+        background-position:center;
+        align-items:flex-end;
+    }
+
+    .hero-content{
+        background:rgba(255,255,255,.88);
+        padding:25px;
+        border-radius:5px;
     }
 
     .hero h1{
-        font-size:45px;
+        font-size:38px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .primary-btn,
+    .secondary-btn{
+        text-align:center;
+    }
+
+    .section{
+        padding:50px 20px;
+    }
+
+    .section-heading h2{
+        font-size:28px;
     }
 
     .category-grid{
         grid-template-columns:repeat(2,1fr);
+        gap:14px;
     }
 
-    .trust{
-        grid-template-columns:repeat(2,1fr);
+    .category-image{
+        height:170px;
     }
 
-    .footer-grid{
+    .category-info{
+        padding:15px 8px 18px;
+    }
+
+    .category-info h3{
+        font-size:14px;
+    }
+
+    .trust-section{
+        margin:0 20px 50px;
         grid-template-columns:1fr 1fr;
+        padding:25px 18px;
     }
 }
 
-@media(max-width:600px){
-
-    .topbar{
-        justify-content:center;
-        font-size:10px;
-    }
-
-    .navbar{
-        height:75px;
-        padding:0 5%;
-    }
-
-    .logo img{
-        width:43px;
-        height:43px;
-    }
-
-    .logo-name{
-        font-size:21px;
-    }
-
-    .nav-actions{
-        gap:13px;
-    }
-
-    .hero{
-        min-height:620px;
-        background-position:65% center;
-    }
-
-    .hero-content{
-        width:90%;
-    }
-
-    .hero h1{
-        font-size:40px;
-    }
-
-    .buttons{
-        flex-direction:column;
-        width:210px;
-    }
-
-    .collection{
-        padding:60px 5%;
-    }
-
-    .heading h2{
-        font-size:34px;
-    }
+@media(max-width:500px){
 
     .category-grid{
         grid-template-columns:1fr;
     }
 
     .category-image{
-        height:300px;
+        height:220px;
     }
 
-    .trust{
+    .trust-section{
         grid-template-columns:1fr;
-        margin:0 5%;
     }
 
-    .footer-grid{
-        grid-template-columns:1fr;
+    .hero h1{
+        font-size:34px;
     }
 }
 </style>
@@ -543,51 +552,182 @@ footer a{
 
 <body>
 
-<div class="topbar">
-    <div>Timeless Elegance. Crafted for You. 💎</div>
+<!-- =========================
+     TOP BAR
+========================= -->
+
+<div class="top-bar">
+
+    <div>
+        Timeless Elegance. Crafted for You. 💎
+    </div>
 
     <div class="top-right">
         <span>🛡 100% Certified Jewellery</span>
         <span>🚚 Free Shipping & Returns</span>
     </div>
+
 </div>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
 
 <header class="navbar">
 
-    <a href="index.html" class="logo">
-        <img src="logo.png" alt="THE JEWELS Logo">
-        <div class="logo-name">THE JEWELS</div>
+    <a href="index.html" class="logo-area">
+
+        <img
+            src="logo.png"
+            alt="THE JEWELS Logo"
+            class="logo"
+        >
+
+        <span class="brand-name">
+            THE JEWELS
+        </span>
+
     </a>
 
+
     <nav class="nav-links">
-        <a href="index.html" class="active">HOME</a>
-        <a href="products.html">COLLECTION</a>
-        <a href="#about">ABOUT US</a>
-        <a href="#contact">CONTACT</a>
+
+        <a href="index.html" class="active">
+            HOME
+        </a>
+
+        <a href="products.html">
+            COLLECTION
+        </a>
+
+        <a href="#about">
+            ABOUT US
+        </a>
+
+        <a href="#contact">
+            CONTACT
+        </a>
+
     </nav>
+
 
     <div class="nav-actions">
 
-        <button class="icon" onclick="alert('Search coming soon')">
+        <button
+            class="icon-button"
+            onclick="searchProducts()"
+            aria-label="Search"
+        >
             ⌕
         </button>
 
-        <a href="products.html" class="icon">
+        <button
+            class="icon-button"
+            onclick="openCart()"
+            aria-label="Shopping Cart"
+        >
             🛍
-            <span class="cart-count" id="cartCount">0</span>
-        </a>
 
-        <button class="icon menu">☰</button>
+            <span
+                class="cart-count"
+                id="cartCount"
+            >
+                0
+            </span>
+
+        </button>
+
+        <button
+            class="icon-button menu-button"
+            onclick="toggleMenu()"
+            aria-label="Menu"
+        >
+            ☰
+        </button>
 
     </div>
 
 </header>
 
+
+<!-- =========================
+     MOBILE MENU
+========================= -->
+
+<div
+    class="mobile-menu"
+    id="mobileMenu"
+    style="
+        background:#ffffff;
+        border-bottom:1px solid #eeeeee;
+        padding:20px;
+    "
+>
+
+    <a
+        href="index.html"
+        style="
+            display:block;
+            padding:12px 0;
+            color:#073db8;
+            text-decoration:none;
+            font-weight:bold;
+        "
+    >
+        HOME
+    </a>
+
+    <a
+        href="products.html"
+        style="
+            display:block;
+            padding:12px 0;
+            color:#111111;
+            text-decoration:none;
+        "
+    >
+        COLLECTION
+    </a>
+
+    <a
+        href="#about"
+        style="
+            display:block;
+            padding:12px 0;
+            color:#111111;
+            text-decoration:none;
+        "
+    >
+        ABOUT US
+    </a>
+
+    <a
+        href="#contact"
+        style="
+            display:block;
+            padding:12px 0;
+            color:#111111;
+            text-decoration:none;
+        "
+    >
+        CONTACT
+    </a>
+
+</div>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero">
 
     <div class="hero-content">
 
-        <div class="small-title">LUXURY JEWELLERY</div>
+        <div class="hero-small">
+            LUXURY JEWELLERY
+        </div>
 
         <h1>
             Elegance That
@@ -595,192 +735,547 @@ footer a{
         </h1>
 
         <p>
-            Discover an exclusive collection of beautifully crafted
-            jewellery designed to celebrate your most precious moments.
+            Discover our exclusive collection of finely crafted
+            jewellery designed to celebrate every moment.
         </p>
 
-        <div class="buttons">
-            <a href="products.html" class="btn btn-primary">
+        <div class="hero-buttons">
+
+            <a
+                href="products.html"
+                class="primary-btn"
+            >
                 EXPLORE COLLECTION
             </a>
 
-            <a href="#collection" class="btn btn-outline">
-                SHOP CATEGORIES
+            <a
+                href="#categories"
+                class="secondary-btn"
+            >
+                VIEW COLLECTION
             </a>
+
         </div>
 
     </div>
 
 </section>
 
-<section class="collection" id="collection">
 
-    <div class="heading">
-        <small>OUR COLLECTION</small>
-        <h2>Shop by Category</h2>
+<!-- =========================
+     CATEGORIES
+========================= -->
+
+<section
+    class="section"
+    id="categories"
+>
+
+    <div class="section-heading">
+
+        <div class="section-label">
+            OUR COLLECTION
+        </div>
+
+        <h2>
+            Shop by Category
+        </h2>
+
         <div class="heading-line"></div>
+
     </div>
+
 
     <div class="category-grid">
 
-        <div class="category">
-            <a href="products.html?category=necklace">
-                <div class="category-image">
-                    <img src="necklace-01.jpeg" alt="Necklaces">
-                </div>
 
-                <div class="category-info">
-                    <h3>NECKLACES</h3>
-                    <span>EXPLORE NOW →</span>
-                </div>
-            </a>
+        <!-- NECKLACES -->
+
+        <div
+            class="category-card"
+            onclick="openCategory('necklace')"
+        >
+
+            <div class="category-image">
+
+                <img
+                    src="necklace-01.jpeg"
+                    alt="Necklaces"
+                >
+
+            </div>
+
+            <div class="category-info">
+
+                <h3>
+                    NECKLACES
+                </h3>
+
+                <span>
+                    EXPLORE NOW →
+                </span>
+
+            </div>
+
         </div>
 
-        <div class="category">
-            <a href="products.html?category=ring">
-                <div class="category-image">
-                    <img src="rings 01.jpeg" alt="Rings">
-                </div>
 
-                <div class="category-info">
-                    <h3>RINGS</h3>
-                    <span>EXPLORE NOW →</span>
-                </div>
-            </a>
+        <!-- RINGS -->
+
+        <div
+            class="category-card"
+            onclick="openCategory('rings')"
+        >
+
+            <div class="category-image">
+
+                <img
+                    src="rings 01.jpeg"
+                    alt="Rings"
+                >
+
+            </div>
+
+            <div class="category-info">
+
+                <h3>
+                    RINGS
+                </h3>
+
+                <span>
+                    EXPLORE NOW →
+                </span>
+
+            </div>
+
         </div>
 
-        <div class="category">
-            <a href="products.html?category=earring">
-                <div class="category-image">
-                    <img src="earring 01.jpeg" alt="Earrings">
-                </div>
 
-                <div class="category-info">
-                    <h3>EARRINGS</h3>
-                    <span>EXPLORE NOW →</span>
-                </div>
-            </a>
+        <!-- EARRINGS -->
+
+        <div
+            class="category-card"
+            onclick="openCategory('earrings')"
+        >
+
+            <div class="category-image">
+
+                <img
+                    src="earring 01.jpeg"
+                    alt="Earrings"
+                >
+
+            </div>
+
+            <div class="category-info">
+
+                <h3>
+                    EARRINGS
+                </h3>
+
+                <span>
+                    EXPLORE NOW →
+                </span>
+
+            </div>
+
         </div>
 
-        <div class="category">
-            <a href="products.html?category=kada">
-                <div class="category-image">
-                    <img src="kada-01.jpeg" alt="Kada">
-                </div>
 
-                <div class="category-info">
-                    <h3>KADA</h3>
-                    <span>EXPLORE NOW →</span>
-                </div>
-            </a>
+        <!-- KADA -->
+
+        <div
+            class="category-card"
+            onclick="openCategory('kada')"
+        >
+
+            <div class="category-image">
+
+                <img
+                    src="kada-01.jpeg"
+                    alt="Kada"
+                >
+
+            </div>
+
+            <div class="category-info">
+
+                <h3>
+                    KADA
+                </h3>
+
+                <span>
+                    EXPLORE NOW →
+                </span>
+
+            </div>
+
         </div>
 
-        <div class="category">
-            <a href="products.html?category=pendant">
-                <div class="category-image">
-                    <img src="royal-pendants 01.jpeg" alt="Royal Pendants">
-                </div>
 
-                <div class="category-info">
-                    <h3>ROYAL PENDANTS</h3>
-                    <span>EXPLORE NOW →</span>
-                </div>
-            </a>
+        <!-- ROYAL PENDANTS -->
+
+        <div
+            class="category-card"
+            onclick="openCategory('pendants')"
+        >
+
+            <div class="category-image">
+
+                <img
+                    src="royal-pendants 01.jpeg"
+                    alt="Royal Pendants"
+                >
+
+            </div>
+
+            <div class="category-info">
+
+                <h3>
+                    ROYAL PENDANTS
+                </h3>
+
+                <span>
+                    EXPLORE NOW →
+                </span>
+
+            </div>
+
         </div>
 
     </div>
 
 </section>
 
-<section class="trust">
+
+<!-- =========================
+     TRUST / SERVICE
+========================= -->
+
+<section class="trust-section">
 
     <div class="trust-item">
-        <div class="trust-icon">💎</div>
-        <div>
-            <h4>CERTIFIED JEWELLERY</h4>
-            <p>Quality you can trust.</p>
+
+        <div class="trust-icon">
+            ◇
         </div>
+
+        <div>
+
+            <h4>
+                CERTIFIED JEWELLERY
+            </h4>
+
+            <p>
+                Quality jewellery crafted with care.
+            </p>
+
+        </div>
+
     </div>
 
-    <div class="trust-item">
-        <div class="trust-icon">✓</div>
-        <div>
-            <h4>PREMIUM QUALITY</h4>
-            <p>Crafted with precision.</p>
-        </div>
-    </div>
 
     <div class="trust-item">
-        <div class="trust-icon">🔒</div>
-        <div>
-            <h4>SECURE SHOPPING</h4>
-            <p>Safe and protected.</p>
+
+        <div class="trust-icon">
+            ✓
         </div>
+
+        <div>
+
+            <h4>
+                PREMIUM QUALITY
+            </h4>
+
+            <p>
+                Carefully selected designs and materials.
+            </p>
+
+        </div>
+
     </div>
 
+
     <div class="trust-item">
-        <div class="trust-icon">♢</div>
-        <div>
-            <h4>TIMELESS DESIGN</h4>
-            <p>Made for every occasion.</p>
+
+        <div class="trust-icon">
+            ♢
         </div>
+
+        <div>
+
+            <h4>
+                SECURE SHOPPING
+            </h4>
+
+            <p>
+                Simple and secure shopping experience.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="trust-item">
+
+        <div class="trust-icon">
+            ♡
+        </div>
+
+        <div>
+
+            <h4>
+                CUSTOMER SERVICE
+            </h4>
+
+            <p>
+                We're here to help you choose perfectly.
+            </p>
+
+        </div>
+
     </div>
 
 </section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section
+    class="section"
+    id="about"
+    style="background:#f8f9fd;"
+>
+
+    <div class="section-heading">
+
+        <div class="section-label">
+            THE JEWELS
+        </div>
+
+        <h2>
+            Crafted for Every Occasion
+        </h2>
+
+        <div class="heading-line"></div>
+
+    </div>
+
+    <p
+        style="
+            max-width:760px;
+            margin:auto;
+            text-align:center;
+            color:#555;
+            line-height:1.8;
+            font-size:16px;
+        "
+    >
+        Explore timeless jewellery designed to add elegance
+        to every celebration, occasion and unforgettable moment.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section
+    class="section"
+    id="contact"
+>
+
+    <div class="section-heading">
+
+        <div class="section-label">
+            GET IN TOUCH
+        </div>
+
+        <h2>
+            Contact THE JEWELS
+        </h2>
+
+        <div class="heading-line"></div>
+
+    </div>
+
+    <p
+        style="
+            text-align:center;
+            color:#555;
+        "
+    >
+        Our team is ready to help you find your perfect piece.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-    <div class="footer-grid">
+    <div class="footer-logo">
 
-        <div class="footer-brand" id="about">
-            <img src="logo.png" alt="THE JEWELS">
-            <h2>THE JEWELS</h2>
+        <img
+            src="logo.png"
+            alt="THE JEWELS"
+        >
 
-            <p>
-                A premium jewellery destination where timeless
-                elegance meets modern design.
-            </p>
-        </div>
-
-        <div>
-            <h4>COLLECTION</h4>
-            <a href="products.html?category=necklace">Necklaces</a>
-            <a href="products.html?category=ring">Rings</a>
-            <a href="products.html?category=earring">Earrings</a>
-            <a href="products.html?category=kada">Kada</a>
-            <a href="products.html?category=pendant">Royal Pendants</a>
-        </div>
-
-        <div>
-            <h4>QUICK LINKS</h4>
-            <a href="index.html">Home</a>
-            <a href="products.html">Collection</a>
-            <a href="#about">About Us</a>
-            <a href="#contact">Contact</a>
-        </div>
-
-        <div id="contact">
-            <h4>CONTACT</h4>
-            <a href="#">WhatsApp</a>
-            <a href="#">Instagram</a>
-            <a href="#">Email</a>
-        </div>
+        <span class="footer-brand">
+            THE JEWELS
+        </span>
 
     </div>
 
-    <div class="footer-bottom">
+    <p>
+        LUXURY JEWELLERY
+    </p>
+
+    <p style="margin-top:10px;">
         © 2026 THE JEWELS. All Rights Reserved.
-    </div>
+    </p>
 
 </footer>
 
+
 <script>
-function updateCart(){
-    const cart = JSON.parse(localStorage.getItem("theJewelsCart") || "[]");
-    document.getElementById("cartCount").textContent = cart.length;
+
+/* =========================
+   CATEGORY NAVIGATION
+========================= */
+
+function openCategory(category){
+
+    window.location.href =
+        "products.html?category=" +
+        encodeURIComponent(category);
+
 }
 
-updateCart();
+
+/* =========================
+   CART COUNT
+========================= */
+
+function updateCartCount(){
+
+    let cart = [];
+
+    try{
+
+        cart =
+            JSON.parse(
+                localStorage.getItem("theJewelsCart")
+            ) || [];
+
+    }catch(error){
+
+        cart = [];
+
+    }
+
+    let total = 0;
+
+    cart.forEach(item => {
+
+        total += Number(item.quantity || 1);
+
+    });
+
+    const counter =
+        document.getElementById("cartCount");
+
+    if(counter){
+
+        counter.textContent = total;
+
+    }
+
+}
+
+
+/* =========================
+   OPEN CART
+========================= */
+
+function openCart(){
+
+    /*
+       products.html will handle the
+       shopping/cart system.
+    */
+
+    window.location.href =
+        "products.html";
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function searchProducts(){
+
+    const search =
+        prompt("Search jewellery:");
+
+    if(search && search.trim() !== ""){
+
+        window.location.href =
+            "products.html?search=" +
+            encodeURIComponent(search.trim());
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+function toggleMenu(){
+
+    const menu =
+        document.getElementById("mobileMenu");
+
+    if(
+        menu.style.display === "block"
+    ){
+
+        menu.style.display = "none";
+
+    }else{
+
+        menu.style.display = "block";
+
+    }
+
+}
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        updateCartCount();
+
+    }
+);
+
 </script>
 
 </body>
